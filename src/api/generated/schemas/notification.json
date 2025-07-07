@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "type": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": ["WORKSPACE_INVITATION"],
+          "x-readme-ref-name": "NotificationType"
+        }
+      ]
+    },
+    "workspace": {
+      "nullable": true,
+      "allOf": [{ "$ref": "#/components/schemas/Workspace" }]
+    },
+    "workspaceId": { "type": "string", "nullable": true },
+    "recipient": { "$ref": "#/components/schemas/User" },
+    "recipientId": { "type": "string" },
+    "sender": {
+      "nullable": true,
+      "allOf": [{ "$ref": "#/components/schemas/User" }]
+    },
+    "senderId": { "type": "string", "nullable": true }
+  },
+  "required": [
+    "id",
+    "createdAt",
+    "updatedAt",
+    "type",
+    "workspaceId",
+    "recipientId",
+    "senderId"
+  ],
+  "x-readme-ref-name": "Notification"
+}

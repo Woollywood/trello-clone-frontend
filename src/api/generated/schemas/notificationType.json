@@ -1,0 +1,5 @@
+{
+  "type": "string",
+  "enum": ["WORKSPACE_INVITATION"],
+  "x-readme-ref-name": "NotificationType"
+}

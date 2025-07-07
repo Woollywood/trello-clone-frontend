@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "visibility": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": ["PRIVATE", "PUBLIC"],
+          "x-readme-ref-name": "WorkspaceVisibility"
+        }
+      ]
+    }
+  },
+  "x-readme-ref-name": "UpdateWorkspaceVisibilityDto"
+}

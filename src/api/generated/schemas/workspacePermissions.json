@@ -1,0 +1,13 @@
+{
+  "type": "string",
+  "enum": [
+    "MANAGE",
+    "READ",
+    "UPDATE",
+    "CREATE",
+    "DELETE",
+    "INVITE",
+    "EXCLUDE"
+  ],
+  "x-readme-ref-name": "WorkspacePermissions"
+}

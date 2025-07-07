@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "username": { "type": "string", "minimum": 3, "minLength": 3 },
+    "password": { "type": "string", "minimum": 5, "minLength": 5 },
+    "email": { "type": "string" }
+  },
+  "required": ["username", "password", "email"],
+  "x-readme-ref-name": "SignUpDto"
+}

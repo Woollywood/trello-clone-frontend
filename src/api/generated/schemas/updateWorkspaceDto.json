@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "title": { "type": "string", "minimum": 3, "minLength": 3 },
+    "visibility": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": ["PRIVATE", "PUBLIC"],
+          "x-readme-ref-name": "WorkspaceVisibility"
+        }
+      ]
+    }
+  },
+  "x-readme-ref-name": "UpdateWorkspaceDto"
+}

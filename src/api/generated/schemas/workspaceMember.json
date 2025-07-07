@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "MANAGE",
+          "READ",
+          "UPDATE",
+          "CREATE",
+          "DELETE",
+          "INVITE",
+          "EXCLUDE"
+        ],
+        "x-readme-ref-name": "WorkspacePermissions"
+      }
+    },
+    "user": { "$ref": "#/components/schemas/User" },
+    "userId": { "type": "string" },
+    "workspace": { "$ref": "#/components/schemas/Workspace" },
+    "workspaceId": { "type": "string" }
+  },
+  "required": [
+    "id",
+    "createdAt",
+    "updatedAt",
+    "permissions",
+    "userId",
+    "workspaceId"
+  ],
+  "x-readme-ref-name": "WorkspaceMember"
+}

@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "username": { "type": "string", "minimum": 3, "minLength": 3 },
+    "email": { "type": "string" },
+    "password": { "type": "string", "minimum": 5, "minLength": 5 },
+    "sessions": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/Session" }
+    },
+    "createdWorkspaces": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/Workspace" }
+    },
+    "workspacesMembership": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/WorkspaceMember" }
+    },
+    "notificationRecipient": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/Notification" }
+    },
+    "notificationSender": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/Notification" }
+    }
+  },
+  "required": [
+    "id",
+    "createdAt",
+    "updatedAt",
+    "username",
+    "email",
+    "password"
+  ],
+  "x-readme-ref-name": "User"
+}

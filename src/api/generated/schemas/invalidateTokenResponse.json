@@ -1,0 +1,6 @@
+{
+  "type": "object",
+  "properties": { "isValid": { "type": "boolean" } },
+  "required": ["isValid"],
+  "x-readme-ref-name": "InvalidateTokenResponse"
+}

@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "title": { "type": "string", "minimum": 3, "minLength": 3 },
+    "visibility": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": ["PRIVATE", "PUBLIC"],
+          "x-readme-ref-name": "WorkspaceVisibility"
+        }
+      ]
+    },
+    "createBy": { "$ref": "#/components/schemas/User" },
+    "createById": { "type": "string" },
+    "members": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/WorkspaceMember" }
+    },
+    "notification": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/Notification" }
+    }
+  },
+  "required": [
+    "id",
+    "createdAt",
+    "updatedAt",
+    "title",
+    "visibility",
+    "createById"
+  ],
+  "x-readme-ref-name": "Workspace"
+}

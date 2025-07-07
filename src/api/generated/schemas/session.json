@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "accessToken": { "type": "string" },
+    "refreshToken": { "type": "string" },
+    "user": {
+      "nullable": true,
+      "allOf": [{ "$ref": "#/components/schemas/User" }]
+    },
+    "userId": { "type": "string", "nullable": true }
+  },
+  "required": [
+    "id",
+    "createdAt",
+    "updatedAt",
+    "accessToken",
+    "refreshToken",
+    "userId"
+  ],
+  "x-readme-ref-name": "Session"
+}
