@@ -7,7 +7,9 @@
  */
 
 import { workspaceControllerAcceptInvite } from './workspaceControllerAcceptInvite.ts'
+import { workspaceControllerDelete } from './workspaceControllerDelete.ts'
 import { workspaceControllerExcludeUser } from './workspaceControllerExcludeUser.ts'
+import { workspaceControllerExcludeUserInvitation } from './workspaceControllerExcludeUserInvitation.ts'
 import { workspaceControllerFindWorkspace } from './workspaceControllerFindWorkspace.ts'
 import { workspaceControllerInviteUser } from './workspaceControllerInviteUser.ts'
 import { workspaceControllerLeave } from './workspaceControllerLeave.ts'
@@ -21,13 +23,15 @@ export function workspaceService() {
   return {
     workspaceControllerFindWorkspace,
     workspaceControllerUpdateWorkspace,
+    workspaceControllerDelete,
     workspaceControllerListMembers,
     workspaceControllerListUsers,
     workspaceControllerUpdateVisibility,
     workspaceControllerInviteUser,
-    workspaceControllerExcludeUser,
+    workspaceControllerExcludeUserInvitation,
     workspaceControllerAcceptInvite,
     workspaceControllerRejectInvite,
+    workspaceControllerExcludeUser,
     workspaceControllerLeave,
   }
 }

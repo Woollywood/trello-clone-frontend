@@ -6,7 +6,11 @@ import React from 'react'
 import { WorkspaceSettingsForm } from './components/WorkspaceSettingsForm'
 import { WorkspaceVisibility } from './components/WorkspaceVisibility'
 
-import { useWorkspaceControllerFindWorkspace } from '@/api/generated'
+import {
+  useWorkspaceControllerDelete,
+  useWorkspaceControllerFindWorkspace,
+} from '@/api/generated'
+import { Button } from '@/components/ui/button'
 
 interface Props {
   id: string
@@ -14,6 +18,8 @@ interface Props {
 
 export const WorkspaceSettings: NextPage<Props> = ({ id }) => {
   const { data: workspace } = useWorkspaceControllerFindWorkspace(id)
+  const { mutateAsync: deleteWorkspace, isPending } =
+    useWorkspaceControllerDelete()
 
   if (!workspace) {
     return null
@@ -30,6 +36,12 @@ export const WorkspaceSettings: NextPage<Props> = ({ id }) => {
           id={workspace.id}
           visibility={workspace.visibility}
         />
+        <Button
+          disabled={isPending}
+          onClick={() => deleteWorkspace({ id })}
+        >
+          Delete
+        </Button>
       </div>
     </div>
   )

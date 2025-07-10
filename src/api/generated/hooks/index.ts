@@ -11,6 +11,9 @@ export type { AuthControllerRefreshTokenMutationKey } from './AuthHooks/useAuthC
 export type { AuthControllerSignInMutationKey } from './AuthHooks/useAuthControllerSignIn.ts'
 export type { AuthControllerSignOutMutationKey } from './AuthHooks/useAuthControllerSignOut.ts'
 export type { AuthControllerSignUpMutationKey } from './AuthHooks/useAuthControllerSignUp.ts'
+export type { NotificationControllerCountNotificationsQueryKey } from './NotificationHooks/useNotificationControllerCountNotifications.ts'
+export type { NotificationControllerCountNotificationsInfiniteQueryKey } from './NotificationHooks/useNotificationControllerCountNotificationsInfinite.ts'
+export type { NotificationControllerCountNotificationsSuspenseQueryKey } from './NotificationHooks/useNotificationControllerCountNotificationsSuspense.ts'
 export type { NotificationControllerListNotificationsQueryKey } from './NotificationHooks/useNotificationControllerListNotifications.ts'
 export type { NotificationControllerListNotificationsInfiniteQueryKey } from './NotificationHooks/useNotificationControllerListNotificationsInfinite.ts'
 export type { NotificationControllerListNotificationsSuspenseQueryKey } from './NotificationHooks/useNotificationControllerListNotificationsSuspense.ts'
@@ -22,7 +25,9 @@ export type { UserControllerListUsersQueryKey } from './UserHooks/useUserControl
 export type { UserControllerListUsersInfiniteQueryKey } from './UserHooks/useUserControllerListUsersInfinite.ts'
 export type { UserControllerListUsersSuspenseQueryKey } from './UserHooks/useUserControllerListUsersSuspense.ts'
 export type { WorkspaceControllerAcceptInviteMutationKey } from './WorkspaceHooks/useWorkspaceControllerAcceptInvite.ts'
+export type { WorkspaceControllerDeleteMutationKey } from './WorkspaceHooks/useWorkspaceControllerDelete.ts'
 export type { WorkspaceControllerExcludeUserMutationKey } from './WorkspaceHooks/useWorkspaceControllerExcludeUser.ts'
+export type { WorkspaceControllerExcludeUserInvitationMutationKey } from './WorkspaceHooks/useWorkspaceControllerExcludeUserInvitation.ts'
 export type { WorkspaceControllerFindWorkspaceQueryKey } from './WorkspaceHooks/useWorkspaceControllerFindWorkspace.ts'
 export type { WorkspaceControllerFindWorkspaceInfiniteQueryKey } from './WorkspaceHooks/useWorkspaceControllerFindWorkspaceInfinite.ts'
 export type { WorkspaceControllerFindWorkspaceSuspenseQueryKey } from './WorkspaceHooks/useWorkspaceControllerFindWorkspaceSuspense.ts'
@@ -99,6 +104,21 @@ export {
   useAuthControllerSignUp,
 } from './AuthHooks/useAuthControllerSignUp.ts'
 export {
+  notificationControllerCountNotificationsQueryKey,
+  notificationControllerCountNotificationsQueryOptions,
+  useNotificationControllerCountNotifications,
+} from './NotificationHooks/useNotificationControllerCountNotifications.ts'
+export {
+  notificationControllerCountNotificationsInfiniteQueryKey,
+  notificationControllerCountNotificationsInfiniteQueryOptions,
+  useNotificationControllerCountNotificationsInfinite,
+} from './NotificationHooks/useNotificationControllerCountNotificationsInfinite.ts'
+export {
+  notificationControllerCountNotificationsSuspenseQueryKey,
+  notificationControllerCountNotificationsSuspenseQueryOptions,
+  useNotificationControllerCountNotificationsSuspense,
+} from './NotificationHooks/useNotificationControllerCountNotificationsSuspense.ts'
+export {
   notificationControllerListNotificationsQueryKey,
   notificationControllerListNotificationsQueryOptions,
   useNotificationControllerListNotifications,
@@ -152,9 +172,17 @@ export {
   useWorkspaceControllerAcceptInvite,
 } from './WorkspaceHooks/useWorkspaceControllerAcceptInvite.ts'
 export {
+  workspaceControllerDeleteMutationKey,
+  useWorkspaceControllerDelete,
+} from './WorkspaceHooks/useWorkspaceControllerDelete.ts'
+export {
   workspaceControllerExcludeUserMutationKey,
   useWorkspaceControllerExcludeUser,
 } from './WorkspaceHooks/useWorkspaceControllerExcludeUser.ts'
+export {
+  workspaceControllerExcludeUserInvitationMutationKey,
+  useWorkspaceControllerExcludeUserInvitation,
+} from './WorkspaceHooks/useWorkspaceControllerExcludeUserInvitation.ts'
 export {
   workspaceControllerFindWorkspaceQueryKey,
   workspaceControllerFindWorkspaceQueryOptions,

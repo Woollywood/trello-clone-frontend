@@ -6,6 +6,7 @@ import React from 'react'
 import { WorkspaceUser } from './WorkspaceUser'
 
 import { useWorkspaceControllerListUsersInfinite } from '@/api/generated'
+import { useEventListener } from '@/features/websocket'
 import { usePagination } from '@/hooks/usePagination'
 import { flatDataFromInfiniteQuery } from '@/utils/helpers/tanstack'
 
@@ -15,16 +16,20 @@ interface Props {
 
 export const WorkspaceUserList: NextPage<Props> = ({ id }) => {
   const { search } = usePagination()
-  const { data, isPending } = useWorkspaceControllerListUsersInfinite(
-    id,
-    { search }
-  )
+  const { data, isPending, refetch } =
+    useWorkspaceControllerListUsersInfinite(id, { search })
+
+  useEventListener('notifications/recipient/action', () => {
+    refetch()
+  })
 
   if (isPending || !data) {
     return null
   }
 
   const flattenData = flatDataFromInfiniteQuery(data)
+
+  console.log({ flattenData })
 
   return (
     <div className="space-y-4">

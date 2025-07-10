@@ -1,7 +1,11 @@
+import { useQueryClient } from '@tanstack/react-query'
 import React from 'react'
 
 import {
   Notification,
+  notificationControllerCountNotificationsQueryKey,
+  notificationControllerListNotificationsInfiniteQueryKey,
+  userControllerFindWorkSpacesInfiniteQueryKey,
   useWorkspaceControllerAcceptInvite,
   useWorkspaceControllerRejectInvite,
 } from '@/api/generated'
@@ -11,10 +15,40 @@ export const NotificationWorkspace: React.FC<Notification> = ({
   sender,
   workspace,
 }) => {
+  const queryClient = useQueryClient()
   const { mutateAsync: acceptInvite, isPending: isPendingAccept } =
-    useWorkspaceControllerAcceptInvite()
+    useWorkspaceControllerAcceptInvite({
+      mutation: {
+        onSuccess: () => {
+          queryClient.invalidateQueries({
+            queryKey:
+              notificationControllerListNotificationsInfiniteQueryKey(),
+          })
+          queryClient.invalidateQueries({
+            queryKey:
+              notificationControllerCountNotificationsQueryKey(),
+          })
+          queryClient.invalidateQueries({
+            queryKey: userControllerFindWorkSpacesInfiniteQueryKey(),
+          })
+        },
+      },
+    })
   const { mutateAsync: rejectInvite, isPending: isPendingReject } =
-    useWorkspaceControllerRejectInvite()
+    useWorkspaceControllerRejectInvite({
+      mutation: {
+        onSuccess: () => {
+          queryClient.invalidateQueries({
+            queryKey:
+              notificationControllerListNotificationsInfiniteQueryKey(),
+          })
+          queryClient.invalidateQueries({
+            queryKey:
+              notificationControllerCountNotificationsQueryKey(),
+          })
+        },
+      },
+    })
 
   const isPending = isPendingAccept || isPendingReject
 

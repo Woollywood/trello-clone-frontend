@@ -18,11 +18,11 @@ import fetch from '@/api/client'
 function getWorkspaceControllerExcludeUserUrl(
   id: WorkspaceControllerExcludeUserPathParams['id']
 ) {
-  return `/api/v1/workspace/${id}/invitation/exclude` as const
+  return `/api/v1/workspace/${id}/exclude` as const
 }
 
 /**
- * {@link /api/v1/workspace/:id/invitation/exclude}
+ * {@link /api/v1/workspace/:id/exclude}
  */
 export async function workspaceControllerExcludeUser(
   id: WorkspaceControllerExcludeUserPathParams['id'],

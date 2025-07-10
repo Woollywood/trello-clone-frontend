@@ -6,8 +6,12 @@
  * Do not edit manually.
  */
 
+import { notificationControllerCountNotifications } from './notificationControllerCountNotifications.ts'
 import { notificationControllerListNotifications } from './notificationControllerListNotifications.ts'
 
 export function notificationService() {
-  return { notificationControllerListNotifications }
+  return {
+    notificationControllerListNotifications,
+    notificationControllerCountNotifications,
+  }
 }

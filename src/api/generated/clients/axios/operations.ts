@@ -51,6 +51,10 @@ export const operations = {
     path: '/api/v1/workspace/:id',
     method: 'patch',
   },
+  WorkspaceController_delete: {
+    path: '/api/v1/workspace/:id',
+    method: 'delete',
+  },
   WorkspaceController_listMembers: {
     path: '/api/v1/workspace/:id/members',
     method: 'get',
@@ -67,7 +71,7 @@ export const operations = {
     path: '/api/v1/workspace/:id/invitation/invite',
     method: 'post',
   },
-  WorkspaceController_excludeUser: {
+  WorkspaceController_excludeUserInvitation: {
     path: '/api/v1/workspace/:id/invitation/exclude',
     method: 'post',
   },
@@ -79,12 +83,20 @@ export const operations = {
     path: '/api/v1/workspace/:id/invitation/reject',
     method: 'post',
   },
+  WorkspaceController_excludeUser: {
+    path: '/api/v1/workspace/:id/exclude',
+    method: 'post',
+  },
   WorkspaceController_leave: {
     path: '/api/v1/workspace/:id/leave',
     method: 'post',
   },
   NotificationController_listNotifications: {
     path: '/api/v1/notification/list',
+    method: 'get',
+  },
+  NotificationController_countNotifications: {
+    path: '/api/v1/notification/list/count',
     method: 'get',
   },
   SessionController_invalidate: {

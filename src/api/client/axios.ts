@@ -4,9 +4,6 @@ import { apiInstance } from '@/utils/helpers'
 
 export type ResponseErrorConfig<T> = AxiosError<T>
 
-/**
- * Subset of AxiosRequestConfig
- */
 export type RequestConfig<TData = unknown> = {
   url?: string
   method: 'GET' | 'PUT' | 'PATCH' | 'POST' | 'DELETE'
@@ -22,9 +19,7 @@ export type RequestConfig<TData = unknown> = {
   signal?: AbortSignal
   headers?: AxiosRequestConfig['headers']
 }
-/**
- * Subset of AxiosResponse
- */
+
 export type ResponseConfig<TData = unknown> = {
   data: TData
   status: number

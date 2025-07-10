@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import React from 'react'
 
+import { Toaster } from '@/components/ui/sonner'
 import { getQueryClient } from '@/libs/tanstackQuery'
 
 export const ProvidersLayout: React.FC<React.PropsWithChildren> = ({
@@ -16,6 +17,7 @@ export const ProvidersLayout: React.FC<React.PropsWithChildren> = ({
     <NuqsAdapter>
       <QueryClientProvider client={queryClient}>
         {children}
+        <Toaster />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </NuqsAdapter>

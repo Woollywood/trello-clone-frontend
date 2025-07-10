@@ -1,13 +1,16 @@
 'use client'
 
+import { useQueryClient } from '@tanstack/react-query'
 import React from 'react'
 
 import {
-  useWorkspaceControllerExcludeUser,
+  useWorkspaceControllerExcludeUserInvitation,
   useWorkspaceControllerInviteUser,
+  workspaceControllerListUsersQueryKey,
   WorkspaceUserDto,
 } from '@/api/generated'
 import { Button } from '@/components/ui/button'
+import { usePagination } from '@/hooks/usePagination'
 
 interface Props {
   workspaceId: string
@@ -18,10 +21,34 @@ export const WorkspaceUser: React.FC<Props> = ({
   workspaceId,
   user: { id, username, isInvited },
 }) => {
+  const { search } = usePagination()
+  const queryClient = useQueryClient()
   const { mutateAsync: invite, isPending: isPendingInvite } =
-    useWorkspaceControllerInviteUser()
+    useWorkspaceControllerInviteUser({
+      mutation: {
+        onSuccess: () => {
+          queryClient.invalidateQueries({
+            queryKey: workspaceControllerListUsersQueryKey(
+              workspaceId,
+              { search }
+            ),
+          })
+        },
+      },
+    })
   const { mutateAsync: exclude, isPending: isPendingExclude } =
-    useWorkspaceControllerExcludeUser({})
+    useWorkspaceControllerExcludeUserInvitation({
+      mutation: {
+        onSuccess: () => {
+          queryClient.invalidateQueries({
+            queryKey: workspaceControllerListUsersQueryKey(
+              workspaceId,
+              { search }
+            ),
+          })
+        },
+      },
+    })
 
   return (
     <div className="flex items-center justify-between">
@@ -34,7 +61,7 @@ export const WorkspaceUser: React.FC<Props> = ({
               exclude({ id: workspaceId, data: { userId: id } })
             }
           >
-            Исключить
+            Отозвать приглашение
           </Button>
         ) : (
           <Button

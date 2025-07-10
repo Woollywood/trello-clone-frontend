@@ -13,6 +13,7 @@ export const workspacePermissionsEnum = {
   CREATE: 'CREATE',
   DELETE: 'DELETE',
   INVITE: 'INVITE',
+  EXCLUDE_INVITE: 'EXCLUDE_INVITE',
   EXCLUDE: 'EXCLUDE',
 } as const
 

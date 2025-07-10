@@ -9,7 +9,7 @@
  */
 
 import type { ExcludeDto } from '../ExcludeDto.ts'
-import type { Workspace } from '../Workspace.ts'
+import type { WorkspaceMember } from '../WorkspaceMember.ts'
 
 export type WorkspaceControllerExcludeUserPathParams = {
   /**
@@ -18,7 +18,7 @@ export type WorkspaceControllerExcludeUserPathParams = {
   id: string
 }
 
-export type WorkspaceControllerExcludeUser200 = Workspace
+export type WorkspaceControllerExcludeUser200 = WorkspaceMember
 
 export type WorkspaceControllerExcludeUserMutationRequest = ExcludeDto
 

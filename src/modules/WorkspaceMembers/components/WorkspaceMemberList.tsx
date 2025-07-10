@@ -14,14 +14,16 @@ interface Props {
 
 export const WorkspaceMemberList: NextPage<Props> = ({ id }) => {
   const { search } = usePagination()
-  const { data: workspace, isPending: isPendingWorkspace } =
-    useWorkspaceControllerListMembersInfinite(id, { search })
+  const {
+    data: workspaceMembers,
+    isPending: isPendingWorkspaceMembers,
+  } = useWorkspaceControllerListMembersInfinite(id, { search })
 
-  if (isPendingWorkspace || !workspace) {
+  if (isPendingWorkspaceMembers || !workspaceMembers) {
     return null
   }
 
-  const flattenData = flatDataFromInfiniteQuery(workspace)
+  const flattenData = flatDataFromInfiniteQuery(workspaceMembers)
   return (
     <div>
       {flattenData.map((member) => (

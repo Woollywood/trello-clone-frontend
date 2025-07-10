@@ -9,7 +9,7 @@
  */
 
 import type { InviteDto } from '../InviteDto.ts'
-import type { Workspace } from '../Workspace.ts'
+import type { Notification } from '../Notification.ts'
 
 export type WorkspaceControllerInviteUserPathParams = {
   /**
@@ -18,7 +18,7 @@ export type WorkspaceControllerInviteUserPathParams = {
   id: string
 }
 
-export type WorkspaceControllerInviteUser200 = Workspace
+export type WorkspaceControllerInviteUser200 = Notification
 
 export type WorkspaceControllerInviteUserMutationRequest = InviteDto
 

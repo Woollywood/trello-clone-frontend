@@ -8,8 +8,6 @@
  * Do not edit manually.
  */
 
-import type { WorkspaceMember } from '../WorkspaceMember.ts'
-
 export type WorkspaceControllerLeavePathParams = {
   /**
    * @type string
@@ -17,7 +15,7 @@ export type WorkspaceControllerLeavePathParams = {
   id: string
 }
 
-export type WorkspaceControllerLeave200 = WorkspaceMember
+export type WorkspaceControllerLeave200 = unknown
 
 export type WorkspaceControllerLeaveMutationResponse =
   WorkspaceControllerLeave200

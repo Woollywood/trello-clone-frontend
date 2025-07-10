@@ -7,6 +7,7 @@
     "CREATE",
     "DELETE",
     "INVITE",
+    "EXCLUDE_INVITE",
     "EXCLUDE"
   ],
   "x-readme-ref-name": "WorkspacePermissions"

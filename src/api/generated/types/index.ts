@@ -44,6 +44,11 @@ export type { InvalidateTokenResponse } from './InvalidateTokenResponse.ts'
 export type { InviteDto } from './InviteDto.ts'
 export type { Notification } from './Notification.ts'
 export type {
+  NotificationControllerCountNotifications200,
+  NotificationControllerCountNotificationsQueryResponse,
+  NotificationControllerCountNotificationsQuery,
+} from './NotificationController/NotificationControllerCountNotifications.ts'
+export type {
   NotificationControllerListNotificationsQueryParamsOrderEnum,
   NotificationControllerListNotificationsQueryParams,
   NotificationControllerListNotifications200,
@@ -96,12 +101,25 @@ export type {
   WorkspaceControllerAcceptInviteMutation,
 } from './WorkspaceController/WorkspaceControllerAcceptInvite.ts'
 export type {
+  WorkspaceControllerDeletePathParams,
+  WorkspaceControllerDelete200,
+  WorkspaceControllerDeleteMutationResponse,
+  WorkspaceControllerDeleteMutation,
+} from './WorkspaceController/WorkspaceControllerDelete.ts'
+export type {
   WorkspaceControllerExcludeUserPathParams,
   WorkspaceControllerExcludeUser200,
   WorkspaceControllerExcludeUserMutationRequest,
   WorkspaceControllerExcludeUserMutationResponse,
   WorkspaceControllerExcludeUserMutation,
 } from './WorkspaceController/WorkspaceControllerExcludeUser.ts'
+export type {
+  WorkspaceControllerExcludeUserInvitationPathParams,
+  WorkspaceControllerExcludeUserInvitation200,
+  WorkspaceControllerExcludeUserInvitationMutationRequest,
+  WorkspaceControllerExcludeUserInvitationMutationResponse,
+  WorkspaceControllerExcludeUserInvitationMutation,
+} from './WorkspaceController/WorkspaceControllerExcludeUserInvitation.ts'
 export type {
   WorkspaceControllerFindWorkspacePathParams,
   WorkspaceControllerFindWorkspace200,

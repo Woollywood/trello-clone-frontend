@@ -24,14 +24,14 @@ import { workspaceControllerExcludeUser } from '../../clients/axios/WorkspaceSer
 import fetch from '@/api/client'
 
 export const workspaceControllerExcludeUserMutationKey = () =>
-  [{ url: '/api/v1/workspace/{id}/invitation/exclude' }] as const
+  [{ url: '/api/v1/workspace/{id}/exclude' }] as const
 
 export type WorkspaceControllerExcludeUserMutationKey = ReturnType<
   typeof workspaceControllerExcludeUserMutationKey
 >
 
 /**
- * {@link /api/v1/workspace/:id/invitation/exclude}
+ * {@link /api/v1/workspace/:id/exclude}
  */
 export function useWorkspaceControllerExcludeUser<TContext>(
   options: {
