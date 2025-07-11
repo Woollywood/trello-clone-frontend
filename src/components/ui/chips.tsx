@@ -7,7 +7,7 @@ interface Props extends React.PropsWithChildren {
 export const Chips: React.FC<Props> = ({ value, children }) => {
   return (
     <div className="relative">
-      <div className="absolute top-0 right-0">{value}</div>
+      {value && <div className="absolute top-0 right-0">{value}</div>}
       {children}
     </div>
   )

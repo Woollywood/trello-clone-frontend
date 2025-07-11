@@ -7,8 +7,8 @@ import { NextPage } from 'next'
 import { Suspense } from 'react'
 
 import { workspaceControllerFindWorkspaceQueryOptions } from '@/api/generated'
+import { createServerInstance } from '@/api/instances'
 import { WorkspaceSettings } from '@/modules/WorkspaceSettings'
-import { apiInstance } from '@/utils/helpers'
 
 interface Props {
   params: Promise<{ id: string }>
@@ -18,7 +18,7 @@ const WorkspaceSuspense: NextPage<{ id: string }> = async ({
   id,
 }) => {
   const queryClient = new QueryClient()
-  const client = apiInstance.serverInstance
+  const client = await createServerInstance()
   await queryClient.prefetchQuery(
     workspaceControllerFindWorkspaceQueryOptions(id, { client })
   )

@@ -1,8 +1,7 @@
 import { jwtVerify, SignJWT } from 'jose'
 import moment from 'moment'
-import Cookies from 'universal-cookie'
 
-import { ENV_CONFIG, sessionCookieKey } from '../constants'
+import { ENV_CONFIG } from '../constants'
 
 import { TokensDto } from '@/api/generated'
 
@@ -21,16 +20,3 @@ export const createSession = async (payload: TokensDto) => {
     .setExpirationTime(expiredAt)
     .sign(encodedKey)
 }
-
-export const getSessionTokens =
-  async (): Promise<TokensDto | null> => {
-    const cookies = new Cookies()
-    const session = cookies.get<string | null>(sessionCookieKey)
-    if (!session) {
-      return null
-    }
-    const {
-      payload: { accessToken, refreshToken },
-    } = await verifySession(session)
-    return { accessToken, refreshToken }
-  }

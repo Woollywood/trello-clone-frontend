@@ -1,55 +1,42 @@
-'use client'
-
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from '@tanstack/react-query'
 import Link from 'next/link'
-import React from 'react'
-import { toast } from 'sonner'
+import React, { Suspense } from 'react'
 
 import { Notifications } from './components/Notifications'
 import { Profile } from './components/Profile'
 
-import {
-  Notification,
-  useNotificationControllerCountNotifications,
-  useNotificationControllerListNotificationsInfinite,
-} from '@/api/generated'
-import { Chips } from '@/components/ui/chips'
-import { useEventListener } from '@/features/websocket'
-import { usePagination } from '@/hooks/usePagination'
+import { notificationControllerCountNotificationsQueryOptions } from '@/api/generated'
+import { createServerInstance } from '@/api/instances'
+
+const RootHeaderSuspense: React.FC = async () => {
+  const queryClient = new QueryClient()
+
+  const client = await createServerInstance()
+  await queryClient.prefetchQuery(
+    notificationControllerCountNotificationsQueryOptions({ client })
+  )
+
+  return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <div className="flex items-center gap-4">
+        <Notifications />
+        <Profile />
+      </div>
+    </HydrationBoundary>
+  )
+}
 
 export const RootHeader: React.FC = () => {
-  const { search } = usePagination()
-  const { data, refetch: refetchNotificationsCount } =
-    useNotificationControllerCountNotifications()
-  const { refetch: refetchNotificationsList } =
-    useNotificationControllerListNotificationsInfinite(
-      { search },
-      { query: { enabled: false } }
-    )
-
-  useEventListener('notifications/get', (data: Notification) => {
-    toast(
-      `Вас приглашают в рабочее пространство ${data.workspace?.title}`
-    )
-    refetchNotificationsList()
-    refetchNotificationsCount()
-  })
-  useEventListener('notifications/remove', (data: Notification) => {
-    toast(
-      `Приглашение в рабочее пространство ${data.workspace?.title} отозвано`
-    )
-    refetchNotificationsList()
-    refetchNotificationsCount()
-  })
-
   return (
     <header className="flex items-center justify-between px-6 py-4">
       <Link href="/">Лого</Link>
-      <div className="flex items-center gap-4">
-        <Chips value={data && !!data ? data : null}>
-          <Notifications />
-        </Chips>
-        <Profile />
-      </div>
+      <Suspense>
+        <RootHeaderSuspense />
+      </Suspense>
     </header>
   )
 }

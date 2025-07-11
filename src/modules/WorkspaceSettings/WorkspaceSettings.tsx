@@ -1,6 +1,7 @@
 'use client'
 
 import { NextPage } from 'next'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 import { WorkspaceSettingsForm } from './components/WorkspaceSettingsForm'
@@ -17,9 +18,16 @@ interface Props {
 }
 
 export const WorkspaceSettings: NextPage<Props> = ({ id }) => {
+  const { push } = useRouter()
   const { data: workspace } = useWorkspaceControllerFindWorkspace(id)
   const { mutateAsync: deleteWorkspace, isPending } =
-    useWorkspaceControllerDelete()
+    useWorkspaceControllerDelete({
+      mutation: {
+        onSuccess: () => {
+          push('/')
+        },
+      },
+    })
 
   if (!workspace) {
     return null
@@ -40,7 +48,7 @@ export const WorkspaceSettings: NextPage<Props> = ({ id }) => {
           disabled={isPending}
           onClick={() => deleteWorkspace({ id })}
         >
-          Delete
+          Удалить
         </Button>
       </div>
     </div>

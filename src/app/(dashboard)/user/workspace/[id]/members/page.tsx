@@ -10,10 +10,10 @@ import {
   workspaceControllerListMembersInfiniteQueryOptions,
   workspaceControllerListUsersInfiniteQueryOptions,
 } from '@/api/generated'
+import { createServerInstance } from '@/api/instances'
 import { WorkspaceMembers } from '@/modules/WorkspaceMembers'
 import { WorkspaceMembersType } from '@/modules/WorkspaceMembers/types'
 import { PaginationParams } from '@/types'
-import { apiInstance } from '@/utils/helpers'
 
 type SearchParams = PaginationParams & { type?: WorkspaceMembersType }
 
@@ -26,7 +26,7 @@ const WorkspaceMembersSuspense: NextPage<
   { id: string } & SearchParams
 > = async ({ id, type = 'members', search }) => {
   const queryClient = new QueryClient()
-  const client = apiInstance.serverInstance
+  const client = await createServerInstance()
 
   switch (type) {
     case 'members':

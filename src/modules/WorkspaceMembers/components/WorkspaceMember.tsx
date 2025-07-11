@@ -1,13 +1,16 @@
 'use client'
 
-import { useParams } from 'next/navigation'
+import { useQueryClient } from '@tanstack/react-query'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 import {
   useAuthControllerIdentity,
+  userControllerFindWorkSpacesInfiniteQueryKey,
   useWorkspaceControllerExcludeUser,
   useWorkspaceControllerFindWorkspace,
   useWorkspaceControllerLeave,
+  workspaceControllerListMembersQueryKey,
   WorkspaceMember as WorkspaceMemberType,
 } from '@/api/generated'
 import { Button } from '@/components/ui/button'
@@ -19,16 +22,36 @@ export const WorkspaceMember: React.FC<WorkspaceMemberType> = ({
   user,
   permissions,
 }) => {
-  const { id } = useParams<{ id: string }>()
-  const { data: workspace } = useWorkspaceControllerFindWorkspace(id)
+  const { data: workspace } =
+    useWorkspaceControllerFindWorkspace(workspaceId)
 
   const role = getUserRole(permissions)
   const { data: identity } = useAuthControllerIdentity()
-  const { mutateAsync: leave, isPending: isPendingLeave } =
-    useWorkspaceControllerLeave()
 
+  const { push } = useRouter()
+  const queryClient = useQueryClient()
+  const { mutateAsync: leave, isPending: isPendingLeave } =
+    useWorkspaceControllerLeave({
+      mutation: {
+        onSuccess: () => {
+          queryClient.invalidateQueries({
+            queryKey: userControllerFindWorkSpacesInfiniteQueryKey(),
+          })
+          push('/')
+        },
+      },
+    })
   const { mutateAsync: excludeUser, isPending: isPendingExclude } =
-    useWorkspaceControllerExcludeUser()
+    useWorkspaceControllerExcludeUser({
+      mutation: {
+        onSuccess: () => {
+          queryClient.invalidateQueries({
+            queryKey:
+              workspaceControllerListMembersQueryKey(workspaceId),
+          })
+        },
+      },
+    })
 
   const shouldShowActions = !!identity && !!workspace
   const isCreator = workspace?.createById === identity?.id

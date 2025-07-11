@@ -10,8 +10,8 @@ import React, { Suspense } from 'react'
 import { WorkspaceList } from './components/WorkspaceList'
 
 import { userControllerFindWorkSpacesQueryOptions } from '@/api/generated'
+import { createServerInstance } from '@/api/instances'
 import { Separator } from '@/components/ui/separator'
-import { apiInstance } from '@/utils/helpers'
 
 interface ISidebarLink {
   label: string
@@ -33,10 +33,12 @@ const WorkspaceListSuspense: NextPage<
   React.PropsWithChildren
 > = async ({ children }) => {
   const queryClient = new QueryClient()
-  const client = apiInstance.serverInstance
 
+  const client = await createServerInstance()
   await queryClient.prefetchQuery(
-    userControllerFindWorkSpacesQueryOptions(undefined, { client })
+    userControllerFindWorkSpacesQueryOptions(undefined, {
+      client,
+    })
   )
 
   return (

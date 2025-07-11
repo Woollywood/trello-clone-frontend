@@ -1,6 +1,6 @@
 import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
 
-import { apiInstance } from '@/utils/helpers'
+import { clientInstance } from '../instances'
 
 export type ResponseErrorConfig<T> = AxiosError<T>
 
@@ -34,7 +34,7 @@ export const client = async <
 >(
   config: RequestConfig<TVariables>
 ): Promise<ResponseConfig<TData>> => {
-  const promise = apiInstance.clientInstance
+  const promise = clientInstance
     .request<TVariables, ResponseConfig<TData>>({ ...config })
     .catch((e: AxiosError<TError>) => {
       throw e

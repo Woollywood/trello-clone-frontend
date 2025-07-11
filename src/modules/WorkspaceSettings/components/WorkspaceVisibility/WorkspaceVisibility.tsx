@@ -1,5 +1,6 @@
 'use client'
 
+import { useQueryClient } from '@tanstack/react-query'
 import React, { useEffect } from 'react'
 import { useFormContext, useWatch } from 'react-hook-form'
 
@@ -8,6 +9,7 @@ import { VisibilityForm } from './types'
 import {
   useWorkspaceControllerUpdateVisibility,
   Workspace,
+  workspaceControllerFindWorkspaceQueryKey,
   workspaceVisibilityEnum,
 } from '@/api/generated'
 import { Button } from '@/components/ui/button'
@@ -58,8 +60,17 @@ export const WorkspaceVisibility: React.FC<
 const WorkspaceVisibilityForm: React.FC<{ id: string }> = ({
   id,
 }) => {
+  const queryClient = useQueryClient()
   const { mutateAsync: onSubmit } =
-    useWorkspaceControllerUpdateVisibility()
+    useWorkspaceControllerUpdateVisibility({
+      mutation: {
+        onSuccess: () => {
+          queryClient.invalidateQueries({
+            queryKey: workspaceControllerFindWorkspaceQueryKey(id),
+          })
+        },
+      },
+    })
 
   const {
     formState: { touchedFields },

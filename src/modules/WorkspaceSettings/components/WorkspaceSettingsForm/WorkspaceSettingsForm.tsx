@@ -1,6 +1,7 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useQueryClient } from '@tanstack/react-query'
 import { Pencil } from 'lucide-react'
 import React, { useState } from 'react'
 
@@ -10,8 +11,10 @@ import {
 } from './schema'
 
 import {
+  userControllerFindWorkSpacesInfiniteQueryKey,
   useWorkspaceControllerUpdateWorkspace,
   Workspace,
+  workspaceControllerFindWorkspaceQueryKey,
 } from '@/api/generated'
 import { Button } from '@/components/ui/button'
 import { Form } from '@/features/form/Form'
@@ -30,11 +33,18 @@ export const WorkspaceSettingsForm: React.FC<Workspace> = ({
 
   const toggleEditingMode = () => setIsEditing((prev) => !prev)
 
+  const queryClient = useQueryClient()
   const { mutateAsync: onSubmit } =
     useWorkspaceControllerUpdateWorkspace({
       mutation: {
         onSuccess() {
           toggleEditingMode()
+          queryClient.invalidateQueries({
+            queryKey: userControllerFindWorkSpacesInfiniteQueryKey(),
+          })
+          queryClient.invalidateQueries({
+            queryKey: workspaceControllerFindWorkspaceQueryKey(id),
+          })
         },
       },
     })

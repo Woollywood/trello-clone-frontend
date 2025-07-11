@@ -6,10 +6,10 @@ import queryString from 'query-string'
 
 import { sessionCookieKey } from '../constants'
 
-import { apiInstance } from './api'
 import { createSession, verifySession } from './session'
 
 import { authControllerRefreshToken } from '@/api/generated'
+import { createServerInstance } from '@/api/instances'
 import { deleteSession } from '@/services/session/SessionServer'
 
 export const getRedirectUrl = (req: NextRequest) => {
@@ -51,10 +51,10 @@ export const refreshSessionTokensIfExpired = async ({
       return res
     }
 
-    const apiClient = apiInstance.serverInstance
+    const client = await createServerInstance()
     const newTokens = await authControllerRefreshToken(
       { refreshToken },
-      { client: apiClient }
+      { client }
     )
     const newSession = await createSession(newTokens)
     console.log('NEW TOKENS FROM MIDDLEWARE')

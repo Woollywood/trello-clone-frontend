@@ -29,8 +29,6 @@ export const WorkspaceUserList: NextPage<Props> = ({ id }) => {
 
   const flattenData = flatDataFromInfiniteQuery(data)
 
-  console.log({ flattenData })
-
   return (
     <div className="space-y-4">
       {flattenData.map((user) => (

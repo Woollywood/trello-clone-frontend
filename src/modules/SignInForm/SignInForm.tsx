@@ -9,6 +9,7 @@ import { toast } from 'sonner'
 import { SignInSchema, signInSchema } from './schema'
 
 import { useAuthControllerSignIn } from '@/api/generated'
+import { publicInstance } from '@/api/instances'
 import { Button } from '@/components/ui/button'
 import { Form } from '@/features/form/Form'
 import { Input } from '@/features/form/Input'
@@ -16,7 +17,6 @@ import { Password } from '@/features/form/Password'
 import { createConnectForm } from '@/hocs/createConnectForm'
 import { sessionClient } from '@/services/session/SessionClient'
 import { ENV_CONFIG } from '@/utils/constants'
-import { apiInstance } from '@/utils/helpers'
 
 const ConnectForm = createConnectForm<SignInSchema>()
 
@@ -29,7 +29,7 @@ export const SignInForm: React.FC<ISignInFormProps> = ({
 }) => {
   const { push } = useRouter()
   const { mutateAsync: onSubmit } = useAuthControllerSignIn({
-    client: { client: apiInstance.publicInstance },
+    client: { client: publicInstance },
     mutation: {
       async onSuccess(tokens) {
         await sessionClient.createSession(tokens)
