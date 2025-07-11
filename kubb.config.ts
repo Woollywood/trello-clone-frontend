@@ -4,6 +4,15 @@ import { pluginOas } from '@kubb/plugin-oas'
 import { pluginReactQuery } from '@kubb/plugin-react-query'
 import { pluginTs } from '@kubb/plugin-ts'
 
+const concatLines = (lines: string[]) => `${lines.join(' \n ')}\n`
+
+const banner = concatLines([
+  '/* eslint-disable @typescript-eslint/no-explicit-any */',
+  '/* eslint-disable @typescript-eslint/no-unused-vars */',
+  '/* eslint-disable @typescript-eslint/ban-ts-comment */',
+  '// @ts-nocheck',
+])
+
 export default defineConfig(() => {
   return {
     root: '.',
@@ -15,6 +24,7 @@ export default defineConfig(() => {
       clean: true,
       write: true,
     },
+    hooks: { done: ['npm run prettier', 'npm run lint:fix'] },
     plugins: [
       pluginOas({
         validate: true,
@@ -28,8 +38,7 @@ export default defineConfig(() => {
       pluginTs({
         output: {
           path: './types',
-          banner:
-            '/* eslint-disable @typescript-eslint/no-explicit-any */ \n /* eslint-disable @typescript-eslint/no-unused-vars */ \n /* eslint-disable @typescript-eslint/ban-ts-comment */ \n // @ts-nocheck \n',
+          banner,
         },
         group: {
           type: 'tag',
@@ -46,9 +55,7 @@ export default defineConfig(() => {
         output: {
           path: './clients/axios',
           barrelType: 'named',
-          banner:
-            '/* eslint-disable @typescript-eslint/no-explicit-any */ \n /* eslint-disable @typescript-eslint/no-unused-vars */ \n /* eslint-disable @typescript-eslint/ban-ts-comment */ \n // @ts-nocheck \n',
-          footer: '',
+          banner,
         },
         group: {
           type: 'tag',
@@ -60,8 +67,7 @@ export default defineConfig(() => {
       pluginReactQuery({
         output: {
           path: './hooks',
-          banner:
-            '/* eslint-disable @typescript-eslint/no-explicit-any */ \n /* eslint-disable @typescript-eslint/no-unused-vars */ \n /* eslint-disable @typescript-eslint/ban-ts-comment */ \n // @ts-nocheck \n',
+          banner,
         },
         group: {
           type: 'tag',
