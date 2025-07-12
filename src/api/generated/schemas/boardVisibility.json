@@ -1,0 +1,5 @@
+{
+  "type": "string",
+  "enum": ["PRIVATE", "WORKSPACE", "PUBLIC"],
+  "x-readme-ref-name": "BoardVisibility"
+}

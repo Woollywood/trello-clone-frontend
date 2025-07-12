@@ -15,17 +15,15 @@ import {
 } from '@/api/generated'
 import { Button } from '@/components/ui/button'
 import { workspaceRolesDictionary } from '@/utils/constants'
-import { getUserRole } from '@/utils/helpers'
 
 export const WorkspaceMember: React.FC<WorkspaceMemberType> = ({
   workspaceId,
   user,
-  permissions,
+  role,
 }) => {
   const { data: workspace } =
     useWorkspaceControllerFindWorkspace(workspaceId)
 
-  const role = getUserRole(permissions)
   const { data: identity } = useAuthControllerIdentity()
 
   const { push } = useRouter()

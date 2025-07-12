@@ -1,0 +1,34 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "role": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": ["ADMIN", "PARTICIPANT", "VIEWER"],
+          "x-readme-ref-name": "BoardRoles"
+        }
+      ]
+    },
+    "user": { "$ref": "#/components/schemas/User" },
+    "userId": { "type": "string" },
+    "board": { "$ref": "#/components/schemas/Board" },
+    "boardId": { "type": "string" },
+    "tasks": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/Task" }
+    }
+  },
+  "required": [
+    "id",
+    "createdAt",
+    "updatedAt",
+    "role",
+    "userId",
+    "boardId"
+  ],
+  "x-readme-ref-name": "BoardMember"
+}

@@ -20,12 +20,12 @@ interface ISidebarLink {
 
 const links: ISidebarLink[] = [
   {
-    label: 'Boards',
-    href: '/user/boards',
+    label: 'Доски',
+    href: '/dashboard/boards',
   },
   {
-    label: 'Main',
-    href: '/user/main',
+    label: 'Главная',
+    href: '/dashboard/main',
   },
 ]
 

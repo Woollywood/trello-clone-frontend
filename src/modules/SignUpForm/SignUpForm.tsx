@@ -35,7 +35,9 @@ export const SignUpForm: React.FC<ISignUpFormProps> = ({
     client: { client: publicInstance },
     mutation: {
       async onSuccess(undefined, { data }) {
-        const tokens = await authControllerSignIn(data)
+        const tokens = await authControllerSignIn(data, {
+          client: publicInstance,
+        })
         await sessionClient.createSession(tokens)
         push(redirectURL)
       },

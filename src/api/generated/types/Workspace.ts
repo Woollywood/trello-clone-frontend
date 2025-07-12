@@ -1,3 +1,5 @@
+ 
+ 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 
@@ -6,6 +8,7 @@
  * Do not edit manually.
  */
 
+import type { Board } from './Board.ts'
 import type { Notification } from './Notification.ts'
 import type { User } from './User.ts'
 import type { WorkspaceMember } from './WorkspaceMember.ts'
@@ -45,5 +48,9 @@ export type Workspace = {
   /**
    * @type array | undefined
    */
-  notification?: Notification[] | undefined
+  notifications?: Notification[] | undefined
+  /**
+   * @type array | undefined
+   */
+  boards?: Board[] | undefined
 }

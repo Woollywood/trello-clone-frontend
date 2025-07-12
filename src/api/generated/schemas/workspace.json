@@ -20,9 +20,13 @@
       "type": "array",
       "items": { "$ref": "#/components/schemas/WorkspaceMember" }
     },
-    "notification": {
+    "notifications": {
       "type": "array",
       "items": { "$ref": "#/components/schemas/Notification" }
+    },
+    "boards": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/Board" }
     }
   },
   "required": [

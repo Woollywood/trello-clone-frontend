@@ -18,11 +18,13 @@ export const WorkspaceItem: React.FC<Workspace> = ({ id, title }) => {
         <AccordionTrigger>{title}</AccordionTrigger>
         <AccordionContent>
           <div className="flex flex-col gap-1">
-            <Link href={`/user/workspace/${id}/boards`}>Доски</Link>
-            <Link href={`/user/workspace/${id}/members`}>
+            <Link href={`/dashboard/workspace/${id}/boards`}>
+              Доски
+            </Link>
+            <Link href={`/dashboard/workspace/${id}/members`}>
               Участники
             </Link>
-            <Link href={`/user/workspace/${id}/settings`}>
+            <Link href={`/dashboard/workspace/${id}/settings`}>
               Настройки
             </Link>
           </div>

@@ -4,22 +4,14 @@
     "id": { "type": "string" },
     "createdAt": { "type": "string", "format": "date-time" },
     "updatedAt": { "type": "string", "format": "date-time" },
-    "permissions": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "enum": [
-          "MANAGE",
-          "READ",
-          "UPDATE",
-          "CREATE",
-          "DELETE",
-          "INVITE",
-          "EXCLUDE_INVITE",
-          "EXCLUDE"
-        ],
-        "x-readme-ref-name": "WorkspacePermissions"
-      }
+    "role": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": ["ADMIN", "PARTICIPANT", "VIEWER"],
+          "x-readme-ref-name": "WorkspaceRoles"
+        }
+      ]
     },
     "user": { "$ref": "#/components/schemas/User" },
     "userId": { "type": "string" },
@@ -30,7 +22,7 @@
     "id",
     "createdAt",
     "updatedAt",
-    "permissions",
+    "role",
     "userId",
     "workspaceId"
   ],

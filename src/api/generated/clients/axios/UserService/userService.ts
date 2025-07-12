@@ -1,3 +1,5 @@
+ 
+ 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 
@@ -7,8 +9,15 @@
  */
 
 import { userControllerFindWorkSpaces } from './userControllerFindWorkSpaces.ts'
+import { userControllerListBoards } from './userControllerListBoards.ts'
 import { userControllerListUsers } from './userControllerListUsers.ts'
+import { userControllerListWorkspaceBoards } from './userControllerListWorkspaceBoards.ts'
 
 export function userService() {
-  return { userControllerListUsers, userControllerFindWorkSpaces }
+  return {
+    userControllerListUsers,
+    userControllerFindWorkSpaces,
+    userControllerListWorkspaceBoards,
+    userControllerListBoards,
+  }
 }

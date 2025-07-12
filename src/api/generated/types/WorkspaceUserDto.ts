@@ -1,3 +1,5 @@
+ 
+ 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 
@@ -6,6 +8,8 @@
  * Do not edit manually.
  */
 
+import type { Board } from './Board.ts'
+import type { BoardMember } from './BoardMember.ts'
 import type { Notification } from './Notification.ts'
 import type { Session } from './Session.ts'
 import type { Workspace } from './Workspace.ts'
@@ -49,7 +53,15 @@ export type WorkspaceUserDto = {
   /**
    * @type array | undefined
    */
-  workspacesMembership?: WorkspaceMember[] | undefined
+  createdBoards?: Board[] | undefined
+  /**
+   * @type array | undefined
+   */
+  workspacesMemberships?: WorkspaceMember[] | undefined
+  /**
+   * @type array | undefined
+   */
+  boardMemberships?: BoardMember[] | undefined
   /**
    * @type array | undefined
    */

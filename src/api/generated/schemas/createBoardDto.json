@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "visibility": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": ["PRIVATE", "WORKSPACE", "PUBLIC"],
+          "x-readme-ref-name": "BoardVisibility"
+        }
+      ]
+    },
+    "title": { "type": "string" }
+  },
+  "required": ["visibility", "title"],
+  "x-readme-ref-name": "CreateBoardDto"
+}

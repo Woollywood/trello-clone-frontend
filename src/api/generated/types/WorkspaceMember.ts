@@ -1,3 +1,5 @@
+ 
+ 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 
@@ -8,7 +10,7 @@
 
 import type { User } from './User.ts'
 import type { Workspace } from './Workspace.ts'
-import type { WorkspacePermissions } from './WorkspacePermissions.ts'
+import type { WorkspaceRoles } from './WorkspaceRoles.ts'
 
 export type WorkspaceMember = {
   /**
@@ -23,10 +25,7 @@ export type WorkspaceMember = {
    * @type string, date-time
    */
   updatedAt: Date
-  /**
-   * @type array
-   */
-  permissions: WorkspacePermissions[]
+  role: WorkspaceRoles
   /**
    * @type object | undefined
    */

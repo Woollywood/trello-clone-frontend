@@ -38,6 +38,27 @@ export type {
   AuthControllerSignUpMutationResponse,
   AuthControllerSignUpMutation,
 } from './AuthController/AuthControllerSignUp.ts'
+export type { Board } from './Board.ts'
+export type { BoardColumn } from './BoardColumn.ts'
+export type {
+  BoardControllerCreateBoard201,
+  BoardControllerCreateBoardMutationRequest,
+  BoardControllerCreateBoardMutationResponse,
+  BoardControllerCreateBoardMutation,
+} from './BoardController/BoardControllerCreateBoard.ts'
+export type {
+  BoardControllerGetBoardPathParams,
+  BoardControllerGetBoard200,
+  BoardControllerGetBoardQueryResponse,
+  BoardControllerGetBoardQuery,
+} from './BoardController/BoardControllerGetBoard.ts'
+export type { BoardMember } from './BoardMember.ts'
+export type { BoardRolesEnum, BoardRoles } from './BoardRoles.ts'
+export type {
+  BoardVisibilityEnum,
+  BoardVisibility,
+} from './BoardVisibility.ts'
+export type { CreateBoardDto } from './CreateBoardDto.ts'
 export type { ExcludeDto } from './ExcludeDto.ts'
 export type { InvalidateTokenDto } from './InvalidateTokenDto.ts'
 export type { InvalidateTokenResponse } from './InvalidateTokenResponse.ts'
@@ -60,6 +81,7 @@ export type {
   NotificationType,
 } from './NotificationType.ts'
 export type { PageMetaDto } from './PageMetaDto.ts'
+export type { PaginatedBoardsDto } from './PaginatedBoardsDto.ts'
 export type { PaginatedNotificationsDto } from './PaginatedNotificationsDto.ts'
 export type { PaginatedUsersDto } from './PaginatedUsersDto.ts'
 export type { PaginatedWorkspaceDto } from './PaginatedWorkspaceDto.ts'
@@ -75,6 +97,7 @@ export type {
 } from './SessionController/SessionControllerInvalidate.ts'
 export type { SignInDto } from './SignInDto.ts'
 export type { SignUpDto } from './SignUpDto.ts'
+export type { Task } from './Task.ts'
 export type { TokensDto } from './TokensDto.ts'
 export type { UpdateWorkspaceDto } from './UpdateWorkspaceDto.ts'
 export type { UpdateWorkspaceVisibilityDto } from './UpdateWorkspaceVisibilityDto.ts'
@@ -87,12 +110,26 @@ export type {
   UserControllerFindWorkSpacesQuery,
 } from './UserController/UserControllerFindWorkSpaces.ts'
 export type {
+  UserControllerListBoardsQueryParamsOrderEnum,
+  UserControllerListBoardsQueryParams,
+  UserControllerListBoards200,
+  UserControllerListBoardsQueryResponse,
+  UserControllerListBoardsQuery,
+} from './UserController/UserControllerListBoards.ts'
+export type {
   UserControllerListUsersQueryParamsOrderEnum,
   UserControllerListUsersQueryParams,
   UserControllerListUsers200,
   UserControllerListUsersQueryResponse,
   UserControllerListUsersQuery,
 } from './UserController/UserControllerListUsers.ts'
+export type {
+  UserControllerListWorkspaceBoardsQueryParamsOrderEnum,
+  UserControllerListWorkspaceBoardsQueryParams,
+  UserControllerListWorkspaceBoards200,
+  UserControllerListWorkspaceBoardsQueryResponse,
+  UserControllerListWorkspaceBoardsQuery,
+} from './UserController/UserControllerListWorkspaceBoards.ts'
 export type { Workspace } from './Workspace.ts'
 export type {
   WorkspaceControllerAcceptInvitePathParams,
@@ -100,6 +137,13 @@ export type {
   WorkspaceControllerAcceptInviteMutationResponse,
   WorkspaceControllerAcceptInviteMutation,
 } from './WorkspaceController/WorkspaceControllerAcceptInvite.ts'
+export type {
+  WorkspaceControllerCreateBoardPathParams,
+  WorkspaceControllerCreateBoard201,
+  WorkspaceControllerCreateBoardMutationRequest,
+  WorkspaceControllerCreateBoardMutationResponse,
+  WorkspaceControllerCreateBoardMutation,
+} from './WorkspaceController/WorkspaceControllerCreateBoard.ts'
 export type {
   WorkspaceControllerDeletePathParams,
   WorkspaceControllerDelete200,
@@ -140,6 +184,14 @@ export type {
   WorkspaceControllerLeaveMutation,
 } from './WorkspaceController/WorkspaceControllerLeave.ts'
 export type {
+  WorkspaceControllerListBoardsPathParams,
+  WorkspaceControllerListBoardsQueryParamsOrderEnum,
+  WorkspaceControllerListBoardsQueryParams,
+  WorkspaceControllerListBoards200,
+  WorkspaceControllerListBoardsQueryResponse,
+  WorkspaceControllerListBoardsQuery,
+} from './WorkspaceController/WorkspaceControllerListBoards.ts'
+export type {
   WorkspaceControllerListMembersPathParams,
   WorkspaceControllerListMembersQueryParamsOrderEnum,
   WorkspaceControllerListMembersQueryParams,
@@ -177,19 +229,24 @@ export type {
 } from './WorkspaceController/WorkspaceControllerUpdateWorkspace.ts'
 export type { WorkspaceMember } from './WorkspaceMember.ts'
 export type {
-  WorkspacePermissionsEnum,
-  WorkspacePermissions,
-} from './WorkspacePermissions.ts'
+  WorkspaceRolesEnum,
+  WorkspaceRoles,
+} from './WorkspaceRoles.ts'
 export type { WorkspaceUserDto } from './WorkspaceUserDto.ts'
 export type {
   WorkspaceVisibilityEnum,
   WorkspaceVisibility,
 } from './WorkspaceVisibility.ts'
+export { boardRolesEnum } from './BoardRoles.ts'
+export { boardVisibilityEnum } from './BoardVisibility.ts'
 export { notificationControllerListNotificationsQueryParamsOrderEnum } from './NotificationController/NotificationControllerListNotifications.ts'
 export { notificationTypeEnum } from './NotificationType.ts'
 export { userControllerFindWorkSpacesQueryParamsOrderEnum } from './UserController/UserControllerFindWorkSpaces.ts'
+export { userControllerListBoardsQueryParamsOrderEnum } from './UserController/UserControllerListBoards.ts'
 export { userControllerListUsersQueryParamsOrderEnum } from './UserController/UserControllerListUsers.ts'
+export { userControllerListWorkspaceBoardsQueryParamsOrderEnum } from './UserController/UserControllerListWorkspaceBoards.ts'
+export { workspaceControllerListBoardsQueryParamsOrderEnum } from './WorkspaceController/WorkspaceControllerListBoards.ts'
 export { workspaceControllerListMembersQueryParamsOrderEnum } from './WorkspaceController/WorkspaceControllerListMembers.ts'
 export { workspaceControllerListUsersQueryParamsOrderEnum } from './WorkspaceController/WorkspaceControllerListUsers.ts'
-export { workspacePermissionsEnum } from './WorkspacePermissions.ts'
+export { workspaceRolesEnum } from './WorkspaceRoles.ts'
 export { workspaceVisibilityEnum } from './WorkspaceVisibility.ts'

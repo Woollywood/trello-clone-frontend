@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "visibility": {
+      "allOf": [
+        {
+          "type": "string",
+          "enum": ["PRIVATE", "WORKSPACE", "PUBLIC"],
+          "x-readme-ref-name": "BoardVisibility"
+        }
+      ]
+    },
+    "title": { "type": "string" },
+    "createBy": { "$ref": "#/components/schemas/User" },
+    "createById": { "type": "string" },
+    "workspace": {
+      "nullable": true,
+      "allOf": [{ "$ref": "#/components/schemas/Workspace" }]
+    },
+    "workspaceId": { "type": "string", "nullable": true },
+    "boardMembers": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/BoardMember" }
+    },
+    "boardColumns": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/BoardColumn" }
+    }
+  },
+  "required": [
+    "id",
+    "createdAt",
+    "updatedAt",
+    "visibility",
+    "title",
+    "createById",
+    "workspaceId"
+  ],
+  "x-readme-ref-name": "Board"
+}

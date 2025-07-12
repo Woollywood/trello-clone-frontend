@@ -15,9 +15,17 @@
       "type": "array",
       "items": { "$ref": "#/components/schemas/Workspace" }
     },
-    "workspacesMembership": {
+    "createdBoards": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/Board" }
+    },
+    "workspacesMemberships": {
       "type": "array",
       "items": { "$ref": "#/components/schemas/WorkspaceMember" }
+    },
+    "boardMemberships": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/BoardMember" }
     },
     "notificationRecipient": {
       "type": "array",

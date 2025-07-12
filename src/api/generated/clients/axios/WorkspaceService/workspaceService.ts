@@ -1,3 +1,5 @@
+ 
+ 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 
@@ -7,12 +9,14 @@
  */
 
 import { workspaceControllerAcceptInvite } from './workspaceControllerAcceptInvite.ts'
+import { workspaceControllerCreateBoard } from './workspaceControllerCreateBoard.ts'
 import { workspaceControllerDelete } from './workspaceControllerDelete.ts'
 import { workspaceControllerExcludeUser } from './workspaceControllerExcludeUser.ts'
 import { workspaceControllerExcludeUserInvitation } from './workspaceControllerExcludeUserInvitation.ts'
 import { workspaceControllerFindWorkspace } from './workspaceControllerFindWorkspace.ts'
 import { workspaceControllerInviteUser } from './workspaceControllerInviteUser.ts'
 import { workspaceControllerLeave } from './workspaceControllerLeave.ts'
+import { workspaceControllerListBoards } from './workspaceControllerListBoards.ts'
 import { workspaceControllerListMembers } from './workspaceControllerListMembers.ts'
 import { workspaceControllerListUsers } from './workspaceControllerListUsers.ts'
 import { workspaceControllerRejectInvite } from './workspaceControllerRejectInvite.ts'
@@ -24,6 +28,8 @@ export function workspaceService() {
     workspaceControllerFindWorkspace,
     workspaceControllerUpdateWorkspace,
     workspaceControllerDelete,
+    workspaceControllerListBoards,
+    workspaceControllerCreateBoard,
     workspaceControllerListMembers,
     workspaceControllerListUsers,
     workspaceControllerUpdateVisibility,

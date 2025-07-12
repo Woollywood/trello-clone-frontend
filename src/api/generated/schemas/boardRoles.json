@@ -1,0 +1,5 @@
+{
+  "type": "string",
+  "enum": ["ADMIN", "PARTICIPANT", "VIEWER"],
+  "x-readme-ref-name": "BoardRoles"
+}

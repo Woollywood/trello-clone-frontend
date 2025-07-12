@@ -24,7 +24,6 @@ export default defineConfig(() => {
       clean: true,
       write: true,
     },
-    hooks: { done: ['npm run prettier', 'npm run lint:fix'] },
     plugins: [
       pluginOas({
         validate: true,

@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "title": { "type": "string" },
+    "description": { "type": "string", "nullable": true },
+    "column": { "$ref": "#/components/schemas/BoardColumn" },
+    "boardColumnId": { "type": "string" },
+    "participants": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/BoardMember" }
+    }
+  },
+  "required": [
+    "id",
+    "createdAt",
+    "updatedAt",
+    "title",
+    "description",
+    "boardColumnId"
+  ],
+  "x-readme-ref-name": "Task"
+}

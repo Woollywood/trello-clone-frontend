@@ -11,6 +11,10 @@ export type { AuthControllerRefreshTokenMutationKey } from './hooks/AuthHooks/us
 export type { AuthControllerSignInMutationKey } from './hooks/AuthHooks/useAuthControllerSignIn.ts'
 export type { AuthControllerSignOutMutationKey } from './hooks/AuthHooks/useAuthControllerSignOut.ts'
 export type { AuthControllerSignUpMutationKey } from './hooks/AuthHooks/useAuthControllerSignUp.ts'
+export type { BoardControllerCreateBoardMutationKey } from './hooks/BoardHooks/useBoardControllerCreateBoard.ts'
+export type { BoardControllerGetBoardQueryKey } from './hooks/BoardHooks/useBoardControllerGetBoard.ts'
+export type { BoardControllerGetBoardInfiniteQueryKey } from './hooks/BoardHooks/useBoardControllerGetBoardInfinite.ts'
+export type { BoardControllerGetBoardSuspenseQueryKey } from './hooks/BoardHooks/useBoardControllerGetBoardSuspense.ts'
 export type { NotificationControllerCountNotificationsQueryKey } from './hooks/NotificationHooks/useNotificationControllerCountNotifications.ts'
 export type { NotificationControllerCountNotificationsInfiniteQueryKey } from './hooks/NotificationHooks/useNotificationControllerCountNotificationsInfinite.ts'
 export type { NotificationControllerCountNotificationsSuspenseQueryKey } from './hooks/NotificationHooks/useNotificationControllerCountNotificationsSuspense.ts'
@@ -21,10 +25,17 @@ export type { SessionControllerInvalidateMutationKey } from './hooks/SessionHook
 export type { UserControllerFindWorkSpacesQueryKey } from './hooks/UserHooks/useUserControllerFindWorkSpaces.ts'
 export type { UserControllerFindWorkSpacesInfiniteQueryKey } from './hooks/UserHooks/useUserControllerFindWorkSpacesInfinite.ts'
 export type { UserControllerFindWorkSpacesSuspenseQueryKey } from './hooks/UserHooks/useUserControllerFindWorkSpacesSuspense.ts'
+export type { UserControllerListBoardsQueryKey } from './hooks/UserHooks/useUserControllerListBoards.ts'
+export type { UserControllerListBoardsInfiniteQueryKey } from './hooks/UserHooks/useUserControllerListBoardsInfinite.ts'
+export type { UserControllerListBoardsSuspenseQueryKey } from './hooks/UserHooks/useUserControllerListBoardsSuspense.ts'
 export type { UserControllerListUsersQueryKey } from './hooks/UserHooks/useUserControllerListUsers.ts'
 export type { UserControllerListUsersInfiniteQueryKey } from './hooks/UserHooks/useUserControllerListUsersInfinite.ts'
 export type { UserControllerListUsersSuspenseQueryKey } from './hooks/UserHooks/useUserControllerListUsersSuspense.ts'
+export type { UserControllerListWorkspaceBoardsQueryKey } from './hooks/UserHooks/useUserControllerListWorkspaceBoards.ts'
+export type { UserControllerListWorkspaceBoardsInfiniteQueryKey } from './hooks/UserHooks/useUserControllerListWorkspaceBoardsInfinite.ts'
+export type { UserControllerListWorkspaceBoardsSuspenseQueryKey } from './hooks/UserHooks/useUserControllerListWorkspaceBoardsSuspense.ts'
 export type { WorkspaceControllerAcceptInviteMutationKey } from './hooks/WorkspaceHooks/useWorkspaceControllerAcceptInvite.ts'
+export type { WorkspaceControllerCreateBoardMutationKey } from './hooks/WorkspaceHooks/useWorkspaceControllerCreateBoard.ts'
 export type { WorkspaceControllerDeleteMutationKey } from './hooks/WorkspaceHooks/useWorkspaceControllerDelete.ts'
 export type { WorkspaceControllerExcludeUserMutationKey } from './hooks/WorkspaceHooks/useWorkspaceControllerExcludeUser.ts'
 export type { WorkspaceControllerExcludeUserInvitationMutationKey } from './hooks/WorkspaceHooks/useWorkspaceControllerExcludeUserInvitation.ts'
@@ -33,6 +44,9 @@ export type { WorkspaceControllerFindWorkspaceInfiniteQueryKey } from './hooks/W
 export type { WorkspaceControllerFindWorkspaceSuspenseQueryKey } from './hooks/WorkspaceHooks/useWorkspaceControllerFindWorkspaceSuspense.ts'
 export type { WorkspaceControllerInviteUserMutationKey } from './hooks/WorkspaceHooks/useWorkspaceControllerInviteUser.ts'
 export type { WorkspaceControllerLeaveMutationKey } from './hooks/WorkspaceHooks/useWorkspaceControllerLeave.ts'
+export type { WorkspaceControllerListBoardsQueryKey } from './hooks/WorkspaceHooks/useWorkspaceControllerListBoards.ts'
+export type { WorkspaceControllerListBoardsInfiniteQueryKey } from './hooks/WorkspaceHooks/useWorkspaceControllerListBoardsInfinite.ts'
+export type { WorkspaceControllerListBoardsSuspenseQueryKey } from './hooks/WorkspaceHooks/useWorkspaceControllerListBoardsSuspense.ts'
 export type { WorkspaceControllerListMembersQueryKey } from './hooks/WorkspaceHooks/useWorkspaceControllerListMembers.ts'
 export type { WorkspaceControllerListMembersInfiniteQueryKey } from './hooks/WorkspaceHooks/useWorkspaceControllerListMembersInfinite.ts'
 export type { WorkspaceControllerListMembersSuspenseQueryKey } from './hooks/WorkspaceHooks/useWorkspaceControllerListMembersSuspense.ts'
@@ -82,6 +96,30 @@ export type {
   AuthControllerSignUpMutationResponse,
   AuthControllerSignUpMutation,
 } from './types/AuthController/AuthControllerSignUp.ts'
+export type { Board } from './types/Board.ts'
+export type { BoardColumn } from './types/BoardColumn.ts'
+export type {
+  BoardControllerCreateBoard201,
+  BoardControllerCreateBoardMutationRequest,
+  BoardControllerCreateBoardMutationResponse,
+  BoardControllerCreateBoardMutation,
+} from './types/BoardController/BoardControllerCreateBoard.ts'
+export type {
+  BoardControllerGetBoardPathParams,
+  BoardControllerGetBoard200,
+  BoardControllerGetBoardQueryResponse,
+  BoardControllerGetBoardQuery,
+} from './types/BoardController/BoardControllerGetBoard.ts'
+export type { BoardMember } from './types/BoardMember.ts'
+export type {
+  BoardRolesEnum,
+  BoardRoles,
+} from './types/BoardRoles.ts'
+export type {
+  BoardVisibilityEnum,
+  BoardVisibility,
+} from './types/BoardVisibility.ts'
+export type { CreateBoardDto } from './types/CreateBoardDto.ts'
 export type { ExcludeDto } from './types/ExcludeDto.ts'
 export type { InvalidateTokenDto } from './types/InvalidateTokenDto.ts'
 export type { InvalidateTokenResponse } from './types/InvalidateTokenResponse.ts'
@@ -104,6 +142,7 @@ export type {
   NotificationType,
 } from './types/NotificationType.ts'
 export type { PageMetaDto } from './types/PageMetaDto.ts'
+export type { PaginatedBoardsDto } from './types/PaginatedBoardsDto.ts'
 export type { PaginatedNotificationsDto } from './types/PaginatedNotificationsDto.ts'
 export type { PaginatedUsersDto } from './types/PaginatedUsersDto.ts'
 export type { PaginatedWorkspaceDto } from './types/PaginatedWorkspaceDto.ts'
@@ -119,6 +158,7 @@ export type {
 } from './types/SessionController/SessionControllerInvalidate.ts'
 export type { SignInDto } from './types/SignInDto.ts'
 export type { SignUpDto } from './types/SignUpDto.ts'
+export type { Task } from './types/Task.ts'
 export type { TokensDto } from './types/TokensDto.ts'
 export type { UpdateWorkspaceDto } from './types/UpdateWorkspaceDto.ts'
 export type { UpdateWorkspaceVisibilityDto } from './types/UpdateWorkspaceVisibilityDto.ts'
@@ -131,12 +171,26 @@ export type {
   UserControllerFindWorkSpacesQuery,
 } from './types/UserController/UserControllerFindWorkSpaces.ts'
 export type {
+  UserControllerListBoardsQueryParamsOrderEnum,
+  UserControllerListBoardsQueryParams,
+  UserControllerListBoards200,
+  UserControllerListBoardsQueryResponse,
+  UserControllerListBoardsQuery,
+} from './types/UserController/UserControllerListBoards.ts'
+export type {
   UserControllerListUsersQueryParamsOrderEnum,
   UserControllerListUsersQueryParams,
   UserControllerListUsers200,
   UserControllerListUsersQueryResponse,
   UserControllerListUsersQuery,
 } from './types/UserController/UserControllerListUsers.ts'
+export type {
+  UserControllerListWorkspaceBoardsQueryParamsOrderEnum,
+  UserControllerListWorkspaceBoardsQueryParams,
+  UserControllerListWorkspaceBoards200,
+  UserControllerListWorkspaceBoardsQueryResponse,
+  UserControllerListWorkspaceBoardsQuery,
+} from './types/UserController/UserControllerListWorkspaceBoards.ts'
 export type { Workspace } from './types/Workspace.ts'
 export type {
   WorkspaceControllerAcceptInvitePathParams,
@@ -144,6 +198,13 @@ export type {
   WorkspaceControllerAcceptInviteMutationResponse,
   WorkspaceControllerAcceptInviteMutation,
 } from './types/WorkspaceController/WorkspaceControllerAcceptInvite.ts'
+export type {
+  WorkspaceControllerCreateBoardPathParams,
+  WorkspaceControllerCreateBoard201,
+  WorkspaceControllerCreateBoardMutationRequest,
+  WorkspaceControllerCreateBoardMutationResponse,
+  WorkspaceControllerCreateBoardMutation,
+} from './types/WorkspaceController/WorkspaceControllerCreateBoard.ts'
 export type {
   WorkspaceControllerDeletePathParams,
   WorkspaceControllerDelete200,
@@ -184,6 +245,14 @@ export type {
   WorkspaceControllerLeaveMutation,
 } from './types/WorkspaceController/WorkspaceControllerLeave.ts'
 export type {
+  WorkspaceControllerListBoardsPathParams,
+  WorkspaceControllerListBoardsQueryParamsOrderEnum,
+  WorkspaceControllerListBoardsQueryParams,
+  WorkspaceControllerListBoards200,
+  WorkspaceControllerListBoardsQueryResponse,
+  WorkspaceControllerListBoardsQuery,
+} from './types/WorkspaceController/WorkspaceControllerListBoards.ts'
+export type {
   WorkspaceControllerListMembersPathParams,
   WorkspaceControllerListMembersQueryParamsOrderEnum,
   WorkspaceControllerListMembersQueryParams,
@@ -221,9 +290,9 @@ export type {
 } from './types/WorkspaceController/WorkspaceControllerUpdateWorkspace.ts'
 export type { WorkspaceMember } from './types/WorkspaceMember.ts'
 export type {
-  WorkspacePermissionsEnum,
-  WorkspacePermissions,
-} from './types/WorkspacePermissions.ts'
+  WorkspaceRolesEnum,
+  WorkspaceRoles,
+} from './types/WorkspaceRoles.ts'
 export type { WorkspaceUserDto } from './types/WorkspaceUserDto.ts'
 export type {
   WorkspaceVisibilityEnum,
@@ -237,6 +306,9 @@ export { authControllerSignIn } from './clients/axios/AuthService/authController
 export { authControllerSignOut } from './clients/axios/AuthService/authControllerSignOut.ts'
 export { authControllerSignUp } from './clients/axios/AuthService/authControllerSignUp.ts'
 export { authService } from './clients/axios/AuthService/authService.ts'
+export { boardControllerCreateBoard } from './clients/axios/BoardService/boardControllerCreateBoard.ts'
+export { boardControllerGetBoard } from './clients/axios/BoardService/boardControllerGetBoard.ts'
+export { boardService } from './clients/axios/BoardService/boardService.ts'
 export { notificationControllerCountNotifications } from './clients/axios/NotificationService/notificationControllerCountNotifications.ts'
 export { notificationControllerListNotifications } from './clients/axios/NotificationService/notificationControllerListNotifications.ts'
 export { notificationService } from './clients/axios/NotificationService/notificationService.ts'
@@ -244,15 +316,19 @@ export { operations } from './clients/axios/operations.ts'
 export { sessionControllerInvalidate } from './clients/axios/SessionService/sessionControllerInvalidate.ts'
 export { sessionService } from './clients/axios/SessionService/sessionService.ts'
 export { userControllerFindWorkSpaces } from './clients/axios/UserService/userControllerFindWorkSpaces.ts'
+export { userControllerListBoards } from './clients/axios/UserService/userControllerListBoards.ts'
 export { userControllerListUsers } from './clients/axios/UserService/userControllerListUsers.ts'
+export { userControllerListWorkspaceBoards } from './clients/axios/UserService/userControllerListWorkspaceBoards.ts'
 export { userService } from './clients/axios/UserService/userService.ts'
 export { workspaceControllerAcceptInvite } from './clients/axios/WorkspaceService/workspaceControllerAcceptInvite.ts'
+export { workspaceControllerCreateBoard } from './clients/axios/WorkspaceService/workspaceControllerCreateBoard.ts'
 export { workspaceControllerDelete } from './clients/axios/WorkspaceService/workspaceControllerDelete.ts'
 export { workspaceControllerExcludeUser } from './clients/axios/WorkspaceService/workspaceControllerExcludeUser.ts'
 export { workspaceControllerExcludeUserInvitation } from './clients/axios/WorkspaceService/workspaceControllerExcludeUserInvitation.ts'
 export { workspaceControllerFindWorkspace } from './clients/axios/WorkspaceService/workspaceControllerFindWorkspace.ts'
 export { workspaceControllerInviteUser } from './clients/axios/WorkspaceService/workspaceControllerInviteUser.ts'
 export { workspaceControllerLeave } from './clients/axios/WorkspaceService/workspaceControllerLeave.ts'
+export { workspaceControllerListBoards } from './clients/axios/WorkspaceService/workspaceControllerListBoards.ts'
 export { workspaceControllerListMembers } from './clients/axios/WorkspaceService/workspaceControllerListMembers.ts'
 export { workspaceControllerListUsers } from './clients/axios/WorkspaceService/workspaceControllerListUsers.ts'
 export { workspaceControllerRejectInvite } from './clients/axios/WorkspaceService/workspaceControllerRejectInvite.ts'
@@ -321,6 +397,25 @@ export {
   useAuthControllerSignUp,
 } from './hooks/AuthHooks/useAuthControllerSignUp.ts'
 export {
+  boardControllerCreateBoardMutationKey,
+  useBoardControllerCreateBoard,
+} from './hooks/BoardHooks/useBoardControllerCreateBoard.ts'
+export {
+  boardControllerGetBoardQueryKey,
+  boardControllerGetBoardQueryOptions,
+  useBoardControllerGetBoard,
+} from './hooks/BoardHooks/useBoardControllerGetBoard.ts'
+export {
+  boardControllerGetBoardInfiniteQueryKey,
+  boardControllerGetBoardInfiniteQueryOptions,
+  useBoardControllerGetBoardInfinite,
+} from './hooks/BoardHooks/useBoardControllerGetBoardInfinite.ts'
+export {
+  boardControllerGetBoardSuspenseQueryKey,
+  boardControllerGetBoardSuspenseQueryOptions,
+  useBoardControllerGetBoardSuspense,
+} from './hooks/BoardHooks/useBoardControllerGetBoardSuspense.ts'
+export {
   notificationControllerCountNotificationsQueryKey,
   notificationControllerCountNotificationsQueryOptions,
   useNotificationControllerCountNotifications,
@@ -370,6 +465,21 @@ export {
   useUserControllerFindWorkSpacesSuspense,
 } from './hooks/UserHooks/useUserControllerFindWorkSpacesSuspense.ts'
 export {
+  userControllerListBoardsQueryKey,
+  userControllerListBoardsQueryOptions,
+  useUserControllerListBoards,
+} from './hooks/UserHooks/useUserControllerListBoards.ts'
+export {
+  userControllerListBoardsInfiniteQueryKey,
+  userControllerListBoardsInfiniteQueryOptions,
+  useUserControllerListBoardsInfinite,
+} from './hooks/UserHooks/useUserControllerListBoardsInfinite.ts'
+export {
+  userControllerListBoardsSuspenseQueryKey,
+  userControllerListBoardsSuspenseQueryOptions,
+  useUserControllerListBoardsSuspense,
+} from './hooks/UserHooks/useUserControllerListBoardsSuspense.ts'
+export {
   userControllerListUsersQueryKey,
   userControllerListUsersQueryOptions,
   useUserControllerListUsers,
@@ -385,9 +495,28 @@ export {
   useUserControllerListUsersSuspense,
 } from './hooks/UserHooks/useUserControllerListUsersSuspense.ts'
 export {
+  userControllerListWorkspaceBoardsQueryKey,
+  userControllerListWorkspaceBoardsQueryOptions,
+  useUserControllerListWorkspaceBoards,
+} from './hooks/UserHooks/useUserControllerListWorkspaceBoards.ts'
+export {
+  userControllerListWorkspaceBoardsInfiniteQueryKey,
+  userControllerListWorkspaceBoardsInfiniteQueryOptions,
+  useUserControllerListWorkspaceBoardsInfinite,
+} from './hooks/UserHooks/useUserControllerListWorkspaceBoardsInfinite.ts'
+export {
+  userControllerListWorkspaceBoardsSuspenseQueryKey,
+  userControllerListWorkspaceBoardsSuspenseQueryOptions,
+  useUserControllerListWorkspaceBoardsSuspense,
+} from './hooks/UserHooks/useUserControllerListWorkspaceBoardsSuspense.ts'
+export {
   workspaceControllerAcceptInviteMutationKey,
   useWorkspaceControllerAcceptInvite,
 } from './hooks/WorkspaceHooks/useWorkspaceControllerAcceptInvite.ts'
+export {
+  workspaceControllerCreateBoardMutationKey,
+  useWorkspaceControllerCreateBoard,
+} from './hooks/WorkspaceHooks/useWorkspaceControllerCreateBoard.ts'
 export {
   workspaceControllerDeleteMutationKey,
   useWorkspaceControllerDelete,
@@ -423,6 +552,21 @@ export {
   workspaceControllerLeaveMutationKey,
   useWorkspaceControllerLeave,
 } from './hooks/WorkspaceHooks/useWorkspaceControllerLeave.ts'
+export {
+  workspaceControllerListBoardsQueryKey,
+  workspaceControllerListBoardsQueryOptions,
+  useWorkspaceControllerListBoards,
+} from './hooks/WorkspaceHooks/useWorkspaceControllerListBoards.ts'
+export {
+  workspaceControllerListBoardsInfiniteQueryKey,
+  workspaceControllerListBoardsInfiniteQueryOptions,
+  useWorkspaceControllerListBoardsInfinite,
+} from './hooks/WorkspaceHooks/useWorkspaceControllerListBoardsInfinite.ts'
+export {
+  workspaceControllerListBoardsSuspenseQueryKey,
+  workspaceControllerListBoardsSuspenseQueryOptions,
+  useWorkspaceControllerListBoardsSuspense,
+} from './hooks/WorkspaceHooks/useWorkspaceControllerListBoardsSuspense.ts'
 export {
   workspaceControllerListMembersQueryKey,
   workspaceControllerListMembersQueryOptions,
@@ -465,11 +609,16 @@ export {
   workspaceControllerUpdateWorkspaceMutationKey,
   useWorkspaceControllerUpdateWorkspace,
 } from './hooks/WorkspaceHooks/useWorkspaceControllerUpdateWorkspace.ts'
+export { boardRolesEnum } from './types/BoardRoles.ts'
+export { boardVisibilityEnum } from './types/BoardVisibility.ts'
 export { notificationControllerListNotificationsQueryParamsOrderEnum } from './types/NotificationController/NotificationControllerListNotifications.ts'
 export { notificationTypeEnum } from './types/NotificationType.ts'
 export { userControllerFindWorkSpacesQueryParamsOrderEnum } from './types/UserController/UserControllerFindWorkSpaces.ts'
+export { userControllerListBoardsQueryParamsOrderEnum } from './types/UserController/UserControllerListBoards.ts'
 export { userControllerListUsersQueryParamsOrderEnum } from './types/UserController/UserControllerListUsers.ts'
+export { userControllerListWorkspaceBoardsQueryParamsOrderEnum } from './types/UserController/UserControllerListWorkspaceBoards.ts'
+export { workspaceControllerListBoardsQueryParamsOrderEnum } from './types/WorkspaceController/WorkspaceControllerListBoards.ts'
 export { workspaceControllerListMembersQueryParamsOrderEnum } from './types/WorkspaceController/WorkspaceControllerListMembers.ts'
 export { workspaceControllerListUsersQueryParamsOrderEnum } from './types/WorkspaceController/WorkspaceControllerListUsers.ts'
-export { workspacePermissionsEnum } from './types/WorkspacePermissions.ts'
+export { workspaceRolesEnum } from './types/WorkspaceRoles.ts'
 export { workspaceVisibilityEnum } from './types/WorkspaceVisibility.ts'

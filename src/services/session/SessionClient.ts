@@ -22,6 +22,7 @@ class SessionClient {
 
   async createSession(tokens: TokensDto) {
     const newSession = await createSession(tokens)
+    console.log({ newSession })
 
     const cookies = new Cookies(document.cookie, { path: '/' })
     cookies.set(sessionCookieKey, newSession)

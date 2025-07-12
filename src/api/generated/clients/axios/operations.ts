@@ -1,3 +1,5 @@
+ 
+ 
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 
@@ -43,6 +45,14 @@ export const operations = {
     path: '/api/v1/user/workspaces',
     method: 'get',
   },
+  UserController_listWorkspaceBoards: {
+    path: '/api/v1/user/workspaces/boards',
+    method: 'get',
+  },
+  UserController_listBoards: {
+    path: '/api/v1/user/boards',
+    method: 'get',
+  },
   WorkspaceController_findWorkspace: {
     path: '/api/v1/workspace/:id',
     method: 'get',
@@ -54,6 +64,14 @@ export const operations = {
   WorkspaceController_delete: {
     path: '/api/v1/workspace/:id',
     method: 'delete',
+  },
+  WorkspaceController_listBoards: {
+    path: '/api/v1/workspace/:id/boards',
+    method: 'get',
+  },
+  WorkspaceController_createBoard: {
+    path: '/api/v1/workspace/:id/boards',
+    method: 'post',
   },
   WorkspaceController_listMembers: {
     path: '/api/v1/workspace/:id/members',
@@ -98,6 +116,14 @@ export const operations = {
   NotificationController_countNotifications: {
     path: '/api/v1/notification/list/count',
     method: 'get',
+  },
+  BoardController_getBoard: {
+    path: '/api/v1/board/:id',
+    method: 'get',
+  },
+  BoardController_createBoard: {
+    path: '/api/v1/board',
+    method: 'post',
   },
   SessionController_invalidate: {
     path: '/api/v1/session/invalidate',
