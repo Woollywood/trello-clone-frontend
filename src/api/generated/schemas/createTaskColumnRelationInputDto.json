@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "connect": {
+      "type": "object",
+      "properties": { "id": { "type": "string" } },
+      "required": ["id"],
+      "x-readme-ref-name": "ConnectBoardColumnDto"
+    }
+  },
+  "required": ["connect"],
+  "x-readme-ref-name": "CreateTaskColumnRelationInputDto"
+}

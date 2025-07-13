@@ -12,9 +12,15 @@ export type { AuthControllerSignInMutationKey } from './AuthHooks/useAuthControl
 export type { AuthControllerSignOutMutationKey } from './AuthHooks/useAuthControllerSignOut.ts'
 export type { AuthControllerSignUpMutationKey } from './AuthHooks/useAuthControllerSignUp.ts'
 export type { BoardControllerCreateBoardMutationKey } from './BoardHooks/useBoardControllerCreateBoard.ts'
+export type { BoardControllerCreateColumnMutationKey } from './BoardHooks/useBoardControllerCreateColumn.ts'
+export type { BoardControllerCreateTaskMutationKey } from './BoardHooks/useBoardControllerCreateTask.ts'
 export type { BoardControllerGetBoardQueryKey } from './BoardHooks/useBoardControllerGetBoard.ts'
 export type { BoardControllerGetBoardInfiniteQueryKey } from './BoardHooks/useBoardControllerGetBoardInfinite.ts'
 export type { BoardControllerGetBoardSuspenseQueryKey } from './BoardHooks/useBoardControllerGetBoardSuspense.ts'
+export type { BoardControllerGetTaskQueryKey } from './BoardHooks/useBoardControllerGetTask.ts'
+export type { BoardControllerGetTaskInfiniteQueryKey } from './BoardHooks/useBoardControllerGetTaskInfinite.ts'
+export type { BoardControllerGetTaskSuspenseQueryKey } from './BoardHooks/useBoardControllerGetTaskSuspense.ts'
+export type { BoardControllerUpdateTaskMutationKey } from './BoardHooks/useBoardControllerUpdateTask.ts'
 export type { NotificationControllerCountNotificationsQueryKey } from './NotificationHooks/useNotificationControllerCountNotifications.ts'
 export type { NotificationControllerCountNotificationsInfiniteQueryKey } from './NotificationHooks/useNotificationControllerCountNotificationsInfinite.ts'
 export type { NotificationControllerCountNotificationsSuspenseQueryKey } from './NotificationHooks/useNotificationControllerCountNotificationsSuspense.ts'
@@ -122,6 +128,14 @@ export {
   useBoardControllerCreateBoard,
 } from './BoardHooks/useBoardControllerCreateBoard.ts'
 export {
+  boardControllerCreateColumnMutationKey,
+  useBoardControllerCreateColumn,
+} from './BoardHooks/useBoardControllerCreateColumn.ts'
+export {
+  boardControllerCreateTaskMutationKey,
+  useBoardControllerCreateTask,
+} from './BoardHooks/useBoardControllerCreateTask.ts'
+export {
   boardControllerGetBoardQueryKey,
   boardControllerGetBoardQueryOptions,
   useBoardControllerGetBoard,
@@ -136,6 +150,25 @@ export {
   boardControllerGetBoardSuspenseQueryOptions,
   useBoardControllerGetBoardSuspense,
 } from './BoardHooks/useBoardControllerGetBoardSuspense.ts'
+export {
+  boardControllerGetTaskQueryKey,
+  boardControllerGetTaskQueryOptions,
+  useBoardControllerGetTask,
+} from './BoardHooks/useBoardControllerGetTask.ts'
+export {
+  boardControllerGetTaskInfiniteQueryKey,
+  boardControllerGetTaskInfiniteQueryOptions,
+  useBoardControllerGetTaskInfinite,
+} from './BoardHooks/useBoardControllerGetTaskInfinite.ts'
+export {
+  boardControllerGetTaskSuspenseQueryKey,
+  boardControllerGetTaskSuspenseQueryOptions,
+  useBoardControllerGetTaskSuspense,
+} from './BoardHooks/useBoardControllerGetTaskSuspense.ts'
+export {
+  boardControllerUpdateTaskMutationKey,
+  useBoardControllerUpdateTask,
+} from './BoardHooks/useBoardControllerUpdateTask.ts'
 export {
   notificationControllerCountNotificationsQueryKey,
   notificationControllerCountNotificationsQueryOptions,

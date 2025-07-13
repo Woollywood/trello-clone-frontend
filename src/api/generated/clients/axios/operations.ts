@@ -123,6 +123,22 @@ export const operations = {
     path: '/api/v1/board',
     method: 'post',
   },
+  BoardController_createColumn: {
+    path: '/api/v1/board/:id/column',
+    method: 'post',
+  },
+  BoardController_createTask: {
+    path: '/api/v1/board/:id/task',
+    method: 'post',
+  },
+  BoardController_getTask: {
+    path: '/api/v1/board/:id/task/:taskId',
+    method: 'get',
+  },
+  BoardController_updateTask: {
+    path: '/api/v1/board/:id/task/:taskId',
+    method: 'patch',
+  },
   SessionController_invalidate: {
     path: '/api/v1/session/invalidate',
     method: 'post',

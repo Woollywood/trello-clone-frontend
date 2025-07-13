@@ -47,18 +47,51 @@ export type {
   BoardControllerCreateBoardMutation,
 } from './BoardController/BoardControllerCreateBoard.ts'
 export type {
+  BoardControllerCreateColumnPathParams,
+  BoardControllerCreateColumn201,
+  BoardControllerCreateColumnMutationRequest,
+  BoardControllerCreateColumnMutationResponse,
+  BoardControllerCreateColumnMutation,
+} from './BoardController/BoardControllerCreateColumn.ts'
+export type {
+  BoardControllerCreateTaskPathParams,
+  BoardControllerCreateTask201,
+  BoardControllerCreateTaskMutationRequest,
+  BoardControllerCreateTaskMutationResponse,
+  BoardControllerCreateTaskMutation,
+} from './BoardController/BoardControllerCreateTask.ts'
+export type {
   BoardControllerGetBoardPathParams,
   BoardControllerGetBoard200,
   BoardControllerGetBoardQueryResponse,
   BoardControllerGetBoardQuery,
 } from './BoardController/BoardControllerGetBoard.ts'
+export type {
+  BoardControllerGetTaskPathParams,
+  BoardControllerGetTask201,
+  BoardControllerGetTaskQueryResponse,
+  BoardControllerGetTaskQuery,
+} from './BoardController/BoardControllerGetTask.ts'
+export type {
+  BoardControllerUpdateTaskPathParams,
+  BoardControllerUpdateTask201,
+  BoardControllerUpdateTaskMutationRequest,
+  BoardControllerUpdateTaskMutationResponse,
+  BoardControllerUpdateTaskMutation,
+} from './BoardController/BoardControllerUpdateTask.ts'
 export type { BoardMember } from './BoardMember.ts'
 export type { BoardRolesEnum, BoardRoles } from './BoardRoles.ts'
 export type {
   BoardVisibilityEnum,
   BoardVisibility,
 } from './BoardVisibility.ts'
+export type { ConnectBoardColumnDto } from './ConnectBoardColumnDto.ts'
+export type { ConnectBoardDto } from './ConnectBoardDto.ts'
+export type { CreateBoardColumnBoardRelationInputDto } from './CreateBoardColumnBoardRelationInputDto.ts'
+export type { CreateBoardColumnDto } from './CreateBoardColumnDto.ts'
 export type { CreateBoardDto } from './CreateBoardDto.ts'
+export type { CreateTaskColumnRelationInputDto } from './CreateTaskColumnRelationInputDto.ts'
+export type { CreateTaskDto } from './CreateTaskDto.ts'
 export type { ExcludeDto } from './ExcludeDto.ts'
 export type { InvalidateTokenDto } from './InvalidateTokenDto.ts'
 export type { InvalidateTokenResponse } from './InvalidateTokenResponse.ts'
@@ -99,6 +132,7 @@ export type { SignInDto } from './SignInDto.ts'
 export type { SignUpDto } from './SignUpDto.ts'
 export type { Task } from './Task.ts'
 export type { TokensDto } from './TokensDto.ts'
+export type { UpdateTaskDto } from './UpdateTaskDto.ts'
 export type { UpdateWorkspaceDto } from './UpdateWorkspaceDto.ts'
 export type { UpdateWorkspaceVisibilityDto } from './UpdateWorkspaceVisibilityDto.ts'
 export type { User } from './User.ts'

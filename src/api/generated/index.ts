@@ -12,9 +12,15 @@ export type { AuthControllerSignInMutationKey } from './hooks/AuthHooks/useAuthC
 export type { AuthControllerSignOutMutationKey } from './hooks/AuthHooks/useAuthControllerSignOut.ts'
 export type { AuthControllerSignUpMutationKey } from './hooks/AuthHooks/useAuthControllerSignUp.ts'
 export type { BoardControllerCreateBoardMutationKey } from './hooks/BoardHooks/useBoardControllerCreateBoard.ts'
+export type { BoardControllerCreateColumnMutationKey } from './hooks/BoardHooks/useBoardControllerCreateColumn.ts'
+export type { BoardControllerCreateTaskMutationKey } from './hooks/BoardHooks/useBoardControllerCreateTask.ts'
 export type { BoardControllerGetBoardQueryKey } from './hooks/BoardHooks/useBoardControllerGetBoard.ts'
 export type { BoardControllerGetBoardInfiniteQueryKey } from './hooks/BoardHooks/useBoardControllerGetBoardInfinite.ts'
 export type { BoardControllerGetBoardSuspenseQueryKey } from './hooks/BoardHooks/useBoardControllerGetBoardSuspense.ts'
+export type { BoardControllerGetTaskQueryKey } from './hooks/BoardHooks/useBoardControllerGetTask.ts'
+export type { BoardControllerGetTaskInfiniteQueryKey } from './hooks/BoardHooks/useBoardControllerGetTaskInfinite.ts'
+export type { BoardControllerGetTaskSuspenseQueryKey } from './hooks/BoardHooks/useBoardControllerGetTaskSuspense.ts'
+export type { BoardControllerUpdateTaskMutationKey } from './hooks/BoardHooks/useBoardControllerUpdateTask.ts'
 export type { NotificationControllerCountNotificationsQueryKey } from './hooks/NotificationHooks/useNotificationControllerCountNotifications.ts'
 export type { NotificationControllerCountNotificationsInfiniteQueryKey } from './hooks/NotificationHooks/useNotificationControllerCountNotificationsInfinite.ts'
 export type { NotificationControllerCountNotificationsSuspenseQueryKey } from './hooks/NotificationHooks/useNotificationControllerCountNotificationsSuspense.ts'
@@ -105,11 +111,38 @@ export type {
   BoardControllerCreateBoardMutation,
 } from './types/BoardController/BoardControllerCreateBoard.ts'
 export type {
+  BoardControllerCreateColumnPathParams,
+  BoardControllerCreateColumn201,
+  BoardControllerCreateColumnMutationRequest,
+  BoardControllerCreateColumnMutationResponse,
+  BoardControllerCreateColumnMutation,
+} from './types/BoardController/BoardControllerCreateColumn.ts'
+export type {
+  BoardControllerCreateTaskPathParams,
+  BoardControllerCreateTask201,
+  BoardControllerCreateTaskMutationRequest,
+  BoardControllerCreateTaskMutationResponse,
+  BoardControllerCreateTaskMutation,
+} from './types/BoardController/BoardControllerCreateTask.ts'
+export type {
   BoardControllerGetBoardPathParams,
   BoardControllerGetBoard200,
   BoardControllerGetBoardQueryResponse,
   BoardControllerGetBoardQuery,
 } from './types/BoardController/BoardControllerGetBoard.ts'
+export type {
+  BoardControllerGetTaskPathParams,
+  BoardControllerGetTask201,
+  BoardControllerGetTaskQueryResponse,
+  BoardControllerGetTaskQuery,
+} from './types/BoardController/BoardControllerGetTask.ts'
+export type {
+  BoardControllerUpdateTaskPathParams,
+  BoardControllerUpdateTask201,
+  BoardControllerUpdateTaskMutationRequest,
+  BoardControllerUpdateTaskMutationResponse,
+  BoardControllerUpdateTaskMutation,
+} from './types/BoardController/BoardControllerUpdateTask.ts'
 export type { BoardMember } from './types/BoardMember.ts'
 export type {
   BoardRolesEnum,
@@ -119,7 +152,13 @@ export type {
   BoardVisibilityEnum,
   BoardVisibility,
 } from './types/BoardVisibility.ts'
+export type { ConnectBoardColumnDto } from './types/ConnectBoardColumnDto.ts'
+export type { ConnectBoardDto } from './types/ConnectBoardDto.ts'
+export type { CreateBoardColumnBoardRelationInputDto } from './types/CreateBoardColumnBoardRelationInputDto.ts'
+export type { CreateBoardColumnDto } from './types/CreateBoardColumnDto.ts'
 export type { CreateBoardDto } from './types/CreateBoardDto.ts'
+export type { CreateTaskColumnRelationInputDto } from './types/CreateTaskColumnRelationInputDto.ts'
+export type { CreateTaskDto } from './types/CreateTaskDto.ts'
 export type { ExcludeDto } from './types/ExcludeDto.ts'
 export type { InvalidateTokenDto } from './types/InvalidateTokenDto.ts'
 export type { InvalidateTokenResponse } from './types/InvalidateTokenResponse.ts'
@@ -160,6 +199,7 @@ export type { SignInDto } from './types/SignInDto.ts'
 export type { SignUpDto } from './types/SignUpDto.ts'
 export type { Task } from './types/Task.ts'
 export type { TokensDto } from './types/TokensDto.ts'
+export type { UpdateTaskDto } from './types/UpdateTaskDto.ts'
 export type { UpdateWorkspaceDto } from './types/UpdateWorkspaceDto.ts'
 export type { UpdateWorkspaceVisibilityDto } from './types/UpdateWorkspaceVisibilityDto.ts'
 export type { User } from './types/User.ts'
@@ -307,7 +347,11 @@ export { authControllerSignOut } from './clients/axios/AuthService/authControlle
 export { authControllerSignUp } from './clients/axios/AuthService/authControllerSignUp.ts'
 export { authService } from './clients/axios/AuthService/authService.ts'
 export { boardControllerCreateBoard } from './clients/axios/BoardService/boardControllerCreateBoard.ts'
+export { boardControllerCreateColumn } from './clients/axios/BoardService/boardControllerCreateColumn.ts'
+export { boardControllerCreateTask } from './clients/axios/BoardService/boardControllerCreateTask.ts'
 export { boardControllerGetBoard } from './clients/axios/BoardService/boardControllerGetBoard.ts'
+export { boardControllerGetTask } from './clients/axios/BoardService/boardControllerGetTask.ts'
+export { boardControllerUpdateTask } from './clients/axios/BoardService/boardControllerUpdateTask.ts'
 export { boardService } from './clients/axios/BoardService/boardService.ts'
 export { notificationControllerCountNotifications } from './clients/axios/NotificationService/notificationControllerCountNotifications.ts'
 export { notificationControllerListNotifications } from './clients/axios/NotificationService/notificationControllerListNotifications.ts'
@@ -401,6 +445,14 @@ export {
   useBoardControllerCreateBoard,
 } from './hooks/BoardHooks/useBoardControllerCreateBoard.ts'
 export {
+  boardControllerCreateColumnMutationKey,
+  useBoardControllerCreateColumn,
+} from './hooks/BoardHooks/useBoardControllerCreateColumn.ts'
+export {
+  boardControllerCreateTaskMutationKey,
+  useBoardControllerCreateTask,
+} from './hooks/BoardHooks/useBoardControllerCreateTask.ts'
+export {
   boardControllerGetBoardQueryKey,
   boardControllerGetBoardQueryOptions,
   useBoardControllerGetBoard,
@@ -415,6 +467,25 @@ export {
   boardControllerGetBoardSuspenseQueryOptions,
   useBoardControllerGetBoardSuspense,
 } from './hooks/BoardHooks/useBoardControllerGetBoardSuspense.ts'
+export {
+  boardControllerGetTaskQueryKey,
+  boardControllerGetTaskQueryOptions,
+  useBoardControllerGetTask,
+} from './hooks/BoardHooks/useBoardControllerGetTask.ts'
+export {
+  boardControllerGetTaskInfiniteQueryKey,
+  boardControllerGetTaskInfiniteQueryOptions,
+  useBoardControllerGetTaskInfinite,
+} from './hooks/BoardHooks/useBoardControllerGetTaskInfinite.ts'
+export {
+  boardControllerGetTaskSuspenseQueryKey,
+  boardControllerGetTaskSuspenseQueryOptions,
+  useBoardControllerGetTaskSuspense,
+} from './hooks/BoardHooks/useBoardControllerGetTaskSuspense.ts'
+export {
+  boardControllerUpdateTaskMutationKey,
+  useBoardControllerUpdateTask,
+} from './hooks/BoardHooks/useBoardControllerUpdateTask.ts'
 export {
   notificationControllerCountNotificationsQueryKey,
   notificationControllerCountNotificationsQueryOptions,

@@ -7,8 +7,19 @@
  */
 
 import { boardControllerCreateBoard } from './boardControllerCreateBoard.ts'
+import { boardControllerCreateColumn } from './boardControllerCreateColumn.ts'
+import { boardControllerCreateTask } from './boardControllerCreateTask.ts'
 import { boardControllerGetBoard } from './boardControllerGetBoard.ts'
+import { boardControllerGetTask } from './boardControllerGetTask.ts'
+import { boardControllerUpdateTask } from './boardControllerUpdateTask.ts'
 
 export function boardService() {
-  return { boardControllerGetBoard, boardControllerCreateBoard }
+  return {
+    boardControllerGetBoard,
+    boardControllerCreateBoard,
+    boardControllerCreateColumn,
+    boardControllerCreateTask,
+    boardControllerGetTask,
+    boardControllerUpdateTask,
+  }
 }
