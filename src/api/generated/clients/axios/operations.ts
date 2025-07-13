@@ -127,6 +127,14 @@ export const operations = {
     path: '/api/v1/board/:id/column',
     method: 'post',
   },
+  BoardController_updateColumn: {
+    path: '/api/v1/board/:id/column/:columnId',
+    method: 'patch',
+  },
+  BoardController_deleteColumn: {
+    path: '/api/v1/board/:id/column/:columnId',
+    method: 'delete',
+  },
   BoardController_createTask: {
     path: '/api/v1/board/:id/task',
     method: 'post',
@@ -138,6 +146,10 @@ export const operations = {
   BoardController_updateTask: {
     path: '/api/v1/board/:id/task/:taskId',
     method: 'patch',
+  },
+  BoardController_deleteTask: {
+    path: '/api/v1/board/:id/task/:taskId',
+    method: 'delete',
   },
   SessionController_invalidate: {
     path: '/api/v1/session/invalidate',

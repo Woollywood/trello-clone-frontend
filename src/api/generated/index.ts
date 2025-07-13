@@ -14,12 +14,15 @@ export type { AuthControllerSignUpMutationKey } from './hooks/AuthHooks/useAuthC
 export type { BoardControllerCreateBoardMutationKey } from './hooks/BoardHooks/useBoardControllerCreateBoard.ts'
 export type { BoardControllerCreateColumnMutationKey } from './hooks/BoardHooks/useBoardControllerCreateColumn.ts'
 export type { BoardControllerCreateTaskMutationKey } from './hooks/BoardHooks/useBoardControllerCreateTask.ts'
+export type { BoardControllerDeleteColumnMutationKey } from './hooks/BoardHooks/useBoardControllerDeleteColumn.ts'
+export type { BoardControllerDeleteTaskMutationKey } from './hooks/BoardHooks/useBoardControllerDeleteTask.ts'
 export type { BoardControllerGetBoardQueryKey } from './hooks/BoardHooks/useBoardControllerGetBoard.ts'
 export type { BoardControllerGetBoardInfiniteQueryKey } from './hooks/BoardHooks/useBoardControllerGetBoardInfinite.ts'
 export type { BoardControllerGetBoardSuspenseQueryKey } from './hooks/BoardHooks/useBoardControllerGetBoardSuspense.ts'
 export type { BoardControllerGetTaskQueryKey } from './hooks/BoardHooks/useBoardControllerGetTask.ts'
 export type { BoardControllerGetTaskInfiniteQueryKey } from './hooks/BoardHooks/useBoardControllerGetTaskInfinite.ts'
 export type { BoardControllerGetTaskSuspenseQueryKey } from './hooks/BoardHooks/useBoardControllerGetTaskSuspense.ts'
+export type { BoardControllerUpdateColumnMutationKey } from './hooks/BoardHooks/useBoardControllerUpdateColumn.ts'
 export type { BoardControllerUpdateTaskMutationKey } from './hooks/BoardHooks/useBoardControllerUpdateTask.ts'
 export type { NotificationControllerCountNotificationsQueryKey } from './hooks/NotificationHooks/useNotificationControllerCountNotifications.ts'
 export type { NotificationControllerCountNotificationsInfiniteQueryKey } from './hooks/NotificationHooks/useNotificationControllerCountNotificationsInfinite.ts'
@@ -125,6 +128,18 @@ export type {
   BoardControllerCreateTaskMutation,
 } from './types/BoardController/BoardControllerCreateTask.ts'
 export type {
+  BoardControllerDeleteColumnPathParams,
+  BoardControllerDeleteColumn201,
+  BoardControllerDeleteColumnMutationResponse,
+  BoardControllerDeleteColumnMutation,
+} from './types/BoardController/BoardControllerDeleteColumn.ts'
+export type {
+  BoardControllerDeleteTaskPathParams,
+  BoardControllerDeleteTask201,
+  BoardControllerDeleteTaskMutationResponse,
+  BoardControllerDeleteTaskMutation,
+} from './types/BoardController/BoardControllerDeleteTask.ts'
+export type {
   BoardControllerGetBoardPathParams,
   BoardControllerGetBoard200,
   BoardControllerGetBoardQueryResponse,
@@ -136,6 +151,13 @@ export type {
   BoardControllerGetTaskQueryResponse,
   BoardControllerGetTaskQuery,
 } from './types/BoardController/BoardControllerGetTask.ts'
+export type {
+  BoardControllerUpdateColumnPathParams,
+  BoardControllerUpdateColumn201,
+  BoardControllerUpdateColumnMutationRequest,
+  BoardControllerUpdateColumnMutationResponse,
+  BoardControllerUpdateColumnMutation,
+} from './types/BoardController/BoardControllerUpdateColumn.ts'
 export type {
   BoardControllerUpdateTaskPathParams,
   BoardControllerUpdateTask201,
@@ -199,6 +221,7 @@ export type { SignInDto } from './types/SignInDto.ts'
 export type { SignUpDto } from './types/SignUpDto.ts'
 export type { Task } from './types/Task.ts'
 export type { TokensDto } from './types/TokensDto.ts'
+export type { UpdateBoardColumnDto } from './types/UpdateBoardColumnDto.ts'
 export type { UpdateTaskDto } from './types/UpdateTaskDto.ts'
 export type { UpdateWorkspaceDto } from './types/UpdateWorkspaceDto.ts'
 export type { UpdateWorkspaceVisibilityDto } from './types/UpdateWorkspaceVisibilityDto.ts'
@@ -349,8 +372,11 @@ export { authService } from './clients/axios/AuthService/authService.ts'
 export { boardControllerCreateBoard } from './clients/axios/BoardService/boardControllerCreateBoard.ts'
 export { boardControllerCreateColumn } from './clients/axios/BoardService/boardControllerCreateColumn.ts'
 export { boardControllerCreateTask } from './clients/axios/BoardService/boardControllerCreateTask.ts'
+export { boardControllerDeleteColumn } from './clients/axios/BoardService/boardControllerDeleteColumn.ts'
+export { boardControllerDeleteTask } from './clients/axios/BoardService/boardControllerDeleteTask.ts'
 export { boardControllerGetBoard } from './clients/axios/BoardService/boardControllerGetBoard.ts'
 export { boardControllerGetTask } from './clients/axios/BoardService/boardControllerGetTask.ts'
+export { boardControllerUpdateColumn } from './clients/axios/BoardService/boardControllerUpdateColumn.ts'
 export { boardControllerUpdateTask } from './clients/axios/BoardService/boardControllerUpdateTask.ts'
 export { boardService } from './clients/axios/BoardService/boardService.ts'
 export { notificationControllerCountNotifications } from './clients/axios/NotificationService/notificationControllerCountNotifications.ts'
@@ -453,6 +479,14 @@ export {
   useBoardControllerCreateTask,
 } from './hooks/BoardHooks/useBoardControllerCreateTask.ts'
 export {
+  boardControllerDeleteColumnMutationKey,
+  useBoardControllerDeleteColumn,
+} from './hooks/BoardHooks/useBoardControllerDeleteColumn.ts'
+export {
+  boardControllerDeleteTaskMutationKey,
+  useBoardControllerDeleteTask,
+} from './hooks/BoardHooks/useBoardControllerDeleteTask.ts'
+export {
   boardControllerGetBoardQueryKey,
   boardControllerGetBoardQueryOptions,
   useBoardControllerGetBoard,
@@ -482,6 +516,10 @@ export {
   boardControllerGetTaskSuspenseQueryOptions,
   useBoardControllerGetTaskSuspense,
 } from './hooks/BoardHooks/useBoardControllerGetTaskSuspense.ts'
+export {
+  boardControllerUpdateColumnMutationKey,
+  useBoardControllerUpdateColumn,
+} from './hooks/BoardHooks/useBoardControllerUpdateColumn.ts'
 export {
   boardControllerUpdateTaskMutationKey,
   useBoardControllerUpdateTask,

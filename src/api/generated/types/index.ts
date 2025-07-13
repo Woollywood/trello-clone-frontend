@@ -61,6 +61,18 @@ export type {
   BoardControllerCreateTaskMutation,
 } from './BoardController/BoardControllerCreateTask.ts'
 export type {
+  BoardControllerDeleteColumnPathParams,
+  BoardControllerDeleteColumn201,
+  BoardControllerDeleteColumnMutationResponse,
+  BoardControllerDeleteColumnMutation,
+} from './BoardController/BoardControllerDeleteColumn.ts'
+export type {
+  BoardControllerDeleteTaskPathParams,
+  BoardControllerDeleteTask201,
+  BoardControllerDeleteTaskMutationResponse,
+  BoardControllerDeleteTaskMutation,
+} from './BoardController/BoardControllerDeleteTask.ts'
+export type {
   BoardControllerGetBoardPathParams,
   BoardControllerGetBoard200,
   BoardControllerGetBoardQueryResponse,
@@ -72,6 +84,13 @@ export type {
   BoardControllerGetTaskQueryResponse,
   BoardControllerGetTaskQuery,
 } from './BoardController/BoardControllerGetTask.ts'
+export type {
+  BoardControllerUpdateColumnPathParams,
+  BoardControllerUpdateColumn201,
+  BoardControllerUpdateColumnMutationRequest,
+  BoardControllerUpdateColumnMutationResponse,
+  BoardControllerUpdateColumnMutation,
+} from './BoardController/BoardControllerUpdateColumn.ts'
 export type {
   BoardControllerUpdateTaskPathParams,
   BoardControllerUpdateTask201,
@@ -132,6 +151,7 @@ export type { SignInDto } from './SignInDto.ts'
 export type { SignUpDto } from './SignUpDto.ts'
 export type { Task } from './Task.ts'
 export type { TokensDto } from './TokensDto.ts'
+export type { UpdateBoardColumnDto } from './UpdateBoardColumnDto.ts'
 export type { UpdateTaskDto } from './UpdateTaskDto.ts'
 export type { UpdateWorkspaceDto } from './UpdateWorkspaceDto.ts'
 export type { UpdateWorkspaceVisibilityDto } from './UpdateWorkspaceVisibilityDto.ts'

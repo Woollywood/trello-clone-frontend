@@ -6,6 +6,7 @@
     "updatedAt": { "type": "string", "format": "date-time" },
     "title": { "type": "string" },
     "description": { "type": "string", "nullable": true },
+    "idx": { "type": "integer", "format": "int32" },
     "column": { "$ref": "#/components/schemas/BoardColumn" },
     "boardColumnId": { "type": "string" },
     "participants": {
@@ -19,6 +20,7 @@
     "updatedAt",
     "title",
     "description",
+    "idx",
     "boardColumnId"
   ],
   "x-readme-ref-name": "Task"

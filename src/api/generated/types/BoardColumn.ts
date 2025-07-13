@@ -27,6 +27,10 @@ export type BoardColumn = {
    */
   title: string
   /**
+   * @type integer, int32
+   */
+  idx: number
+  /**
    * @type object | undefined
    */
   board?: Board | undefined

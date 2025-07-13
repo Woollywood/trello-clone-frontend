@@ -14,12 +14,15 @@ export type { AuthControllerSignUpMutationKey } from './AuthHooks/useAuthControl
 export type { BoardControllerCreateBoardMutationKey } from './BoardHooks/useBoardControllerCreateBoard.ts'
 export type { BoardControllerCreateColumnMutationKey } from './BoardHooks/useBoardControllerCreateColumn.ts'
 export type { BoardControllerCreateTaskMutationKey } from './BoardHooks/useBoardControllerCreateTask.ts'
+export type { BoardControllerDeleteColumnMutationKey } from './BoardHooks/useBoardControllerDeleteColumn.ts'
+export type { BoardControllerDeleteTaskMutationKey } from './BoardHooks/useBoardControllerDeleteTask.ts'
 export type { BoardControllerGetBoardQueryKey } from './BoardHooks/useBoardControllerGetBoard.ts'
 export type { BoardControllerGetBoardInfiniteQueryKey } from './BoardHooks/useBoardControllerGetBoardInfinite.ts'
 export type { BoardControllerGetBoardSuspenseQueryKey } from './BoardHooks/useBoardControllerGetBoardSuspense.ts'
 export type { BoardControllerGetTaskQueryKey } from './BoardHooks/useBoardControllerGetTask.ts'
 export type { BoardControllerGetTaskInfiniteQueryKey } from './BoardHooks/useBoardControllerGetTaskInfinite.ts'
 export type { BoardControllerGetTaskSuspenseQueryKey } from './BoardHooks/useBoardControllerGetTaskSuspense.ts'
+export type { BoardControllerUpdateColumnMutationKey } from './BoardHooks/useBoardControllerUpdateColumn.ts'
 export type { BoardControllerUpdateTaskMutationKey } from './BoardHooks/useBoardControllerUpdateTask.ts'
 export type { NotificationControllerCountNotificationsQueryKey } from './NotificationHooks/useNotificationControllerCountNotifications.ts'
 export type { NotificationControllerCountNotificationsInfiniteQueryKey } from './NotificationHooks/useNotificationControllerCountNotificationsInfinite.ts'
@@ -136,6 +139,14 @@ export {
   useBoardControllerCreateTask,
 } from './BoardHooks/useBoardControllerCreateTask.ts'
 export {
+  boardControllerDeleteColumnMutationKey,
+  useBoardControllerDeleteColumn,
+} from './BoardHooks/useBoardControllerDeleteColumn.ts'
+export {
+  boardControllerDeleteTaskMutationKey,
+  useBoardControllerDeleteTask,
+} from './BoardHooks/useBoardControllerDeleteTask.ts'
+export {
   boardControllerGetBoardQueryKey,
   boardControllerGetBoardQueryOptions,
   useBoardControllerGetBoard,
@@ -165,6 +176,10 @@ export {
   boardControllerGetTaskSuspenseQueryOptions,
   useBoardControllerGetTaskSuspense,
 } from './BoardHooks/useBoardControllerGetTaskSuspense.ts'
+export {
+  boardControllerUpdateColumnMutationKey,
+  useBoardControllerUpdateColumn,
+} from './BoardHooks/useBoardControllerUpdateColumn.ts'
 export {
   boardControllerUpdateTaskMutationKey,
   useBoardControllerUpdateTask,

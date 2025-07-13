@@ -1,19 +1,43 @@
 'use client'
 
+import { useQueryClient } from '@tanstack/react-query'
+import { Trash } from 'lucide-react'
 import React from 'react'
 
 import { CreateColumn, CreateTask, Task } from './components'
 
-import { useBoardControllerGetBoard } from '@/api/generated'
+import {
+  boardControllerGetBoardQueryKey,
+  useBoardControllerDeleteColumn,
+  useBoardControllerGetBoard,
+} from '@/api/generated'
+import { Button } from '@/components/ui/button'
 
 interface Props {
   id: string
 }
 
 export const Board: React.FC<Props> = ({ id }) => {
-  const { data, isPending } = useBoardControllerGetBoard(id)
+  const { data, isPending: isPendingBoards } =
+    useBoardControllerGetBoard(id)
 
-  if (!data || isPending) {
+  const queryClient = useQueryClient()
+  const { mutateAsync: deleteColumn, isPending: isPendingDelete } =
+    useBoardControllerDeleteColumn({
+      mutation: {
+        onSuccess: () => {
+          queryClient.invalidateQueries({
+            queryKey: boardControllerGetBoardQueryKey(id),
+          })
+        },
+      },
+    })
+
+  const onDelete = async (columnId: string) => {
+    await deleteColumn({ id, columnId })
+  }
+
+  if (!data || isPendingBoards) {
     return null
   }
 
@@ -36,9 +60,18 @@ export const Board: React.FC<Props> = ({ id }) => {
                   key={column.id}
                   className="w-3xs min-w-3xs rounded-xl bg-black p-2 text-white"
                 >
-                  <p className="mb-6 text-xl font-medium break-words">
-                    {column.title}
-                  </p>
+                  <div className="flex items-start justify-between gap-2">
+                    <p className="mb-6 text-xl font-medium break-words">
+                      {column.title}
+                    </p>
+                    <Button
+                      disabled={isPendingDelete}
+                      variant="ghost"
+                      onClick={() => onDelete(column.id)}
+                    >
+                      <Trash />
+                    </Button>
+                  </div>
                   <div className="space-y-2">
                     {column.tasks?.map((task) => (
                       <Task key={task.id} {...task} />

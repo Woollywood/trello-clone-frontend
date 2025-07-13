@@ -31,6 +31,10 @@ export type Task = {
    */
   description: string | null
   /**
+   * @type integer, int32
+   */
+  idx: number
+  /**
    * @type object | undefined
    */
   column?: BoardColumn | undefined

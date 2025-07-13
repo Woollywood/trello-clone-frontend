@@ -9,8 +9,11 @@
 import { boardControllerCreateBoard } from './boardControllerCreateBoard.ts'
 import { boardControllerCreateColumn } from './boardControllerCreateColumn.ts'
 import { boardControllerCreateTask } from './boardControllerCreateTask.ts'
+import { boardControllerDeleteColumn } from './boardControllerDeleteColumn.ts'
+import { boardControllerDeleteTask } from './boardControllerDeleteTask.ts'
 import { boardControllerGetBoard } from './boardControllerGetBoard.ts'
 import { boardControllerGetTask } from './boardControllerGetTask.ts'
+import { boardControllerUpdateColumn } from './boardControllerUpdateColumn.ts'
 import { boardControllerUpdateTask } from './boardControllerUpdateTask.ts'
 
 export function boardService() {
@@ -18,8 +21,11 @@ export function boardService() {
     boardControllerGetBoard,
     boardControllerCreateBoard,
     boardControllerCreateColumn,
+    boardControllerUpdateColumn,
+    boardControllerDeleteColumn,
     boardControllerCreateTask,
     boardControllerGetTask,
     boardControllerUpdateTask,
+    boardControllerDeleteTask,
   }
 }
