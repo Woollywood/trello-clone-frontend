@@ -80,10 +80,30 @@ export type {
 } from './BoardController/BoardControllerGetBoard.ts'
 export type {
   BoardControllerGetTaskPathParams,
-  BoardControllerGetTask201,
+  BoardControllerGetTask200,
   BoardControllerGetTaskQueryResponse,
   BoardControllerGetTaskQuery,
 } from './BoardController/BoardControllerGetTask.ts'
+export type {
+  BoardControllerGetTasksPathParams,
+  BoardControllerGetTasks200,
+  BoardControllerGetTasksQueryResponse,
+  BoardControllerGetTasksQuery,
+} from './BoardController/BoardControllerGetTasks.ts'
+export type {
+  BoardControllerSwapColumnsPathParams,
+  BoardControllerSwapColumns200,
+  BoardControllerSwapColumnsMutationRequest,
+  BoardControllerSwapColumnsMutationResponse,
+  BoardControllerSwapColumnsMutation,
+} from './BoardController/BoardControllerSwapColumns.ts'
+export type {
+  BoardControllerSwapTasksPathParams,
+  BoardControllerSwapTasks200,
+  BoardControllerSwapTasksMutationRequest,
+  BoardControllerSwapTasksMutationResponse,
+  BoardControllerSwapTasksMutation,
+} from './BoardController/BoardControllerSwapTasks.ts'
 export type {
   BoardControllerUpdateColumnPathParams,
   BoardControllerUpdateColumn201,
@@ -104,11 +124,13 @@ export type {
   BoardVisibilityEnum,
   BoardVisibility,
 } from './BoardVisibility.ts'
+export type { ColumnSwapDto } from './ColumnSwapDto.ts'
 export type { ConnectBoardColumnDto } from './ConnectBoardColumnDto.ts'
 export type { ConnectBoardDto } from './ConnectBoardDto.ts'
 export type { CreateBoardColumnBoardRelationInputDto } from './CreateBoardColumnBoardRelationInputDto.ts'
 export type { CreateBoardColumnDto } from './CreateBoardColumnDto.ts'
 export type { CreateBoardDto } from './CreateBoardDto.ts'
+export type { CreateTaskBoardRelationInputDto } from './CreateTaskBoardRelationInputDto.ts'
 export type { CreateTaskColumnRelationInputDto } from './CreateTaskColumnRelationInputDto.ts'
 export type { CreateTaskDto } from './CreateTaskDto.ts'
 export type { ExcludeDto } from './ExcludeDto.ts'
@@ -150,6 +172,7 @@ export type {
 export type { SignInDto } from './SignInDto.ts'
 export type { SignUpDto } from './SignUpDto.ts'
 export type { Task } from './Task.ts'
+export type { TaskSwapDto } from './TaskSwapDto.ts'
 export type { TokensDto } from './TokensDto.ts'
 export type { UpdateBoardColumnDto } from './UpdateBoardColumnDto.ts'
 export type { UpdateTaskDto } from './UpdateTaskDto.ts'

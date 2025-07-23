@@ -23,14 +23,14 @@ import { boardControllerDeleteTask } from '../../clients/axios/BoardService/boar
 import fetch from '@/api/client'
 
 export const boardControllerDeleteTaskMutationKey = () =>
-  [{ url: '/api/v1/board/{id}/task/{taskId}' }] as const
+  [{ url: '/api/v1/board/{id}/tasks/{taskId}' }] as const
 
 export type BoardControllerDeleteTaskMutationKey = ReturnType<
   typeof boardControllerDeleteTaskMutationKey
 >
 
 /**
- * {@link /api/v1/board/:id/task/:taskId}
+ * {@link /api/v1/board/:id/tasks/:taskId}
  */
 export function useBoardControllerDeleteTask<TContext>(
   options: {

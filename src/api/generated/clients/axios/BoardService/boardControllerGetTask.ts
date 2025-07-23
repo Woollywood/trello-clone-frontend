@@ -18,11 +18,11 @@ function getBoardControllerGetTaskUrl(
   id: BoardControllerGetTaskPathParams['id'],
   taskId: BoardControllerGetTaskPathParams['taskId']
 ) {
-  return `/api/v1/board/${id}/task/${taskId}` as const
+  return `/api/v1/board/${id}/tasks/${taskId}` as const
 }
 
 /**
- * {@link /api/v1/board/:id/task/:taskId}
+ * {@link /api/v1/board/:id/tasks/:taskId}
  */
 export async function boardControllerGetTask(
   id: BoardControllerGetTaskPathParams['id'],

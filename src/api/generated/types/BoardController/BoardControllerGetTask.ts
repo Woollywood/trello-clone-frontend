@@ -21,13 +21,13 @@ export type BoardControllerGetTaskPathParams = {
   taskId: string
 }
 
-export type BoardControllerGetTask201 = Task
+export type BoardControllerGetTask200 = Task
 
 export type BoardControllerGetTaskQueryResponse =
-  BoardControllerGetTask201
+  BoardControllerGetTask200
 
 export type BoardControllerGetTaskQuery = {
-  Response: BoardControllerGetTask201
+  Response: BoardControllerGetTask200
   PathParams: BoardControllerGetTaskPathParams
   Errors: any
 }

@@ -6,6 +6,7 @@
  * Do not edit manually.
  */
 
+import type { CreateTaskBoardRelationInputDto } from './CreateTaskBoardRelationInputDto.ts'
 import type { CreateTaskColumnRelationInputDto } from './CreateTaskColumnRelationInputDto.ts'
 
 export type CreateTaskDto = {
@@ -17,6 +18,10 @@ export type CreateTaskDto = {
    * @type string
    */
   description?: (string | null) | undefined
+  /**
+   * @type object
+   */
+  board: CreateTaskBoardRelationInputDto
   /**
    * @type object
    */

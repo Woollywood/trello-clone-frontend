@@ -9,6 +9,7 @@
 import type { BoardColumn } from './BoardColumn.ts'
 import type { BoardMember } from './BoardMember.ts'
 import type { BoardVisibility } from './BoardVisibility.ts'
+import type { Task } from './Task.ts'
 import type { User } from './User.ts'
 import type { Workspace } from './Workspace.ts'
 
@@ -51,4 +52,8 @@ export type Board = {
    * @type array | undefined
    */
   boardColumns?: BoardColumn[] | undefined
+  /**
+   * @type array | undefined
+   */
+  tasks?: Task[] | undefined
 }

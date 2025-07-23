@@ -6,6 +6,7 @@
  * Do not edit manually.
  */
 
+import type { Board } from './Board.ts'
 import type { BoardColumn } from './BoardColumn.ts'
 import type { BoardMember } from './BoardMember.ts'
 
@@ -34,6 +35,14 @@ export type Task = {
    * @type integer, int32
    */
   idx: number
+  /**
+   * @type object | undefined
+   */
+  board?: Board | undefined
+  /**
+   * @type string
+   */
+  boardId: string
   /**
    * @type object | undefined
    */

@@ -13,6 +13,9 @@ import { boardControllerDeleteColumn } from './boardControllerDeleteColumn.ts'
 import { boardControllerDeleteTask } from './boardControllerDeleteTask.ts'
 import { boardControllerGetBoard } from './boardControllerGetBoard.ts'
 import { boardControllerGetTask } from './boardControllerGetTask.ts'
+import { boardControllerGetTasks } from './boardControllerGetTasks.ts'
+import { boardControllerSwapColumns } from './boardControllerSwapColumns.ts'
+import { boardControllerSwapTasks } from './boardControllerSwapTasks.ts'
 import { boardControllerUpdateColumn } from './boardControllerUpdateColumn.ts'
 import { boardControllerUpdateTask } from './boardControllerUpdateTask.ts'
 
@@ -24,8 +27,11 @@ export function boardService() {
     boardControllerUpdateColumn,
     boardControllerDeleteColumn,
     boardControllerCreateTask,
+    boardControllerGetTasks,
     boardControllerGetTask,
     boardControllerUpdateTask,
     boardControllerDeleteTask,
+    boardControllerSwapColumns,
+    boardControllerSwapTasks,
   }
 }

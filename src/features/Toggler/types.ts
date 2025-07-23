@@ -6,6 +6,7 @@ interface ChildrenProps {
 
 export interface ToggleProps {
   toggled?: boolean
+  disabled?: boolean
   toggle?: (nextValue: boolean) => void
   renderToggle: (props: ChildrenProps) => React.ReactNode
   children: (props: ChildrenProps) => React.ReactNode

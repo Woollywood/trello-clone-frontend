@@ -6,6 +6,7 @@ import { ToggleProps } from './types'
 
 export const Toggler: React.FC<ToggleProps> = ({
   toggled = false,
+  disabled = false,
   toggle,
   renderToggle,
   children,
@@ -13,6 +14,10 @@ export const Toggler: React.FC<ToggleProps> = ({
   const [isToggled, setIsToggled] = useState(toggled)
 
   const onToggle = () => {
+    if (disabled) {
+      return
+    }
+
     toggle?.(!isToggled)
     setIsToggled((prev) => !prev)
   }

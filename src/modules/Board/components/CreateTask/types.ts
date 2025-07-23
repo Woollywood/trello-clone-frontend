@@ -1,6 +1,9 @@
-import { BoardColumn } from '@/api/generated'
+export interface ICreateTaskProps {
+  columnId: string
+  isOverlay?: boolean
+}
 
-export interface Props {
-  boardId: string
-  column: BoardColumn
+export interface ICreateTaskFormProps {
+  columnId: string
+  onCancel: () => void
 }

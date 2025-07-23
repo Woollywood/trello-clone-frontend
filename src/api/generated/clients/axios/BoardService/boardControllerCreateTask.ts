@@ -18,11 +18,11 @@ import fetch from '@/api/client'
 function getBoardControllerCreateTaskUrl(
   id: BoardControllerCreateTaskPathParams['id']
 ) {
-  return `/api/v1/board/${id}/task` as const
+  return `/api/v1/board/${id}/tasks` as const
 }
 
 /**
- * {@link /api/v1/board/:id/task}
+ * {@link /api/v1/board/:id/tasks}
  */
 export async function boardControllerCreateTask(
   id: BoardControllerCreateTaskPathParams['id'],

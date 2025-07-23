@@ -13,6 +13,8 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
     "@hookform/resolvers": "^5.1.1",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
@@ -52,6 +54,7 @@
     "input-otp": "^1.4.2",
     "jose": "^6.0.11",
     "jwt-decode": "^4.0.0",
+    "lodash-es": "^4.17.21",
     "lucide-react": "^0.525.0",
     "moment": "^2.30.1",
     "next": "15.3.5",
@@ -69,6 +72,7 @@
     "sonner": "^2.0.6",
     "tailwind-merge": "^3.3.1",
     "universal-cookie": "^8.0.1",
+    "uuid": "^11.1.0",
     "vaul": "^1.1.2",
     "zod": "^3.25.74"
   },
@@ -81,6 +85,7 @@
     "@kubb/plugin-react-query": "^3.14.0",
     "@kubb/plugin-ts": "^3.14.0",
     "@tailwindcss/postcss": "^4",
+    "@types/lodash-es": "^4.17.12",
     "@types/node": "^20",
     "@types/qs": "^6.14.0",
     "@types/react": "^19",

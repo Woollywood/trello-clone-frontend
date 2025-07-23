@@ -30,7 +30,7 @@ export const boardControllerGetTaskQueryKey = (
 ) =>
   [
     {
-      url: '/api/v1/board/:id/task/:taskId',
+      url: '/api/v1/board/:id/tasks/:taskId',
       params: { id: id, taskId: taskId },
     },
   ] as const
@@ -61,7 +61,7 @@ export function boardControllerGetTaskQueryOptions(
 }
 
 /**
- * {@link /api/v1/board/:id/task/:taskId}
+ * {@link /api/v1/board/:id/tasks/:taskId}
  */
 export function useBoardControllerGetTask<
   TData = BoardControllerGetTaskQueryResponse,

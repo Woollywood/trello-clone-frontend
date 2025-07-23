@@ -24,5 +24,5 @@ export interface IFormRef<
   TContext = unknown,
   TTransformedValues = TFieldValues,
 > extends UseFormReturn<TFieldValues, TContext, TTransformedValues> {
-  formRef: React.Ref<HTMLFormElement>
+  formRef: React.Ref<HTMLFormElement | null>
 }

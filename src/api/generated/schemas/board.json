@@ -28,6 +28,10 @@
     "boardColumns": {
       "type": "array",
       "items": { "$ref": "#/components/schemas/BoardColumn" }
+    },
+    "tasks": {
+      "type": "array",
+      "items": { "$ref": "#/components/schemas/Task" }
     }
   },
   "required": [

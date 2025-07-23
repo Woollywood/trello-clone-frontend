@@ -7,9 +7,9 @@ interface Props extends React.PropsWithChildren {
 
 const Layout: NextPage<Props> = ({ children, modal }) => {
   return (
-    <div>
+    <div className="relative h-[calc(100vh-var(--header-height))] overflow-x-auto overflow-y-hidden">
       {children}
-      <div className="forModal">{modal}</div>
+      <div>{modal}</div>
     </div>
   )
 }

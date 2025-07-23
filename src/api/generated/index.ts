@@ -21,7 +21,12 @@ export type { BoardControllerGetBoardInfiniteQueryKey } from './hooks/BoardHooks
 export type { BoardControllerGetBoardSuspenseQueryKey } from './hooks/BoardHooks/useBoardControllerGetBoardSuspense.ts'
 export type { BoardControllerGetTaskQueryKey } from './hooks/BoardHooks/useBoardControllerGetTask.ts'
 export type { BoardControllerGetTaskInfiniteQueryKey } from './hooks/BoardHooks/useBoardControllerGetTaskInfinite.ts'
+export type { BoardControllerGetTasksQueryKey } from './hooks/BoardHooks/useBoardControllerGetTasks.ts'
+export type { BoardControllerGetTasksInfiniteQueryKey } from './hooks/BoardHooks/useBoardControllerGetTasksInfinite.ts'
+export type { BoardControllerGetTasksSuspenseQueryKey } from './hooks/BoardHooks/useBoardControllerGetTasksSuspense.ts'
 export type { BoardControllerGetTaskSuspenseQueryKey } from './hooks/BoardHooks/useBoardControllerGetTaskSuspense.ts'
+export type { BoardControllerSwapColumnsMutationKey } from './hooks/BoardHooks/useBoardControllerSwapColumns.ts'
+export type { BoardControllerSwapTasksMutationKey } from './hooks/BoardHooks/useBoardControllerSwapTasks.ts'
 export type { BoardControllerUpdateColumnMutationKey } from './hooks/BoardHooks/useBoardControllerUpdateColumn.ts'
 export type { BoardControllerUpdateTaskMutationKey } from './hooks/BoardHooks/useBoardControllerUpdateTask.ts'
 export type { NotificationControllerCountNotificationsQueryKey } from './hooks/NotificationHooks/useNotificationControllerCountNotifications.ts'
@@ -147,10 +152,30 @@ export type {
 } from './types/BoardController/BoardControllerGetBoard.ts'
 export type {
   BoardControllerGetTaskPathParams,
-  BoardControllerGetTask201,
+  BoardControllerGetTask200,
   BoardControllerGetTaskQueryResponse,
   BoardControllerGetTaskQuery,
 } from './types/BoardController/BoardControllerGetTask.ts'
+export type {
+  BoardControllerGetTasksPathParams,
+  BoardControllerGetTasks200,
+  BoardControllerGetTasksQueryResponse,
+  BoardControllerGetTasksQuery,
+} from './types/BoardController/BoardControllerGetTasks.ts'
+export type {
+  BoardControllerSwapColumnsPathParams,
+  BoardControllerSwapColumns200,
+  BoardControllerSwapColumnsMutationRequest,
+  BoardControllerSwapColumnsMutationResponse,
+  BoardControllerSwapColumnsMutation,
+} from './types/BoardController/BoardControllerSwapColumns.ts'
+export type {
+  BoardControllerSwapTasksPathParams,
+  BoardControllerSwapTasks200,
+  BoardControllerSwapTasksMutationRequest,
+  BoardControllerSwapTasksMutationResponse,
+  BoardControllerSwapTasksMutation,
+} from './types/BoardController/BoardControllerSwapTasks.ts'
 export type {
   BoardControllerUpdateColumnPathParams,
   BoardControllerUpdateColumn201,
@@ -174,11 +199,13 @@ export type {
   BoardVisibilityEnum,
   BoardVisibility,
 } from './types/BoardVisibility.ts'
+export type { ColumnSwapDto } from './types/ColumnSwapDto.ts'
 export type { ConnectBoardColumnDto } from './types/ConnectBoardColumnDto.ts'
 export type { ConnectBoardDto } from './types/ConnectBoardDto.ts'
 export type { CreateBoardColumnBoardRelationInputDto } from './types/CreateBoardColumnBoardRelationInputDto.ts'
 export type { CreateBoardColumnDto } from './types/CreateBoardColumnDto.ts'
 export type { CreateBoardDto } from './types/CreateBoardDto.ts'
+export type { CreateTaskBoardRelationInputDto } from './types/CreateTaskBoardRelationInputDto.ts'
 export type { CreateTaskColumnRelationInputDto } from './types/CreateTaskColumnRelationInputDto.ts'
 export type { CreateTaskDto } from './types/CreateTaskDto.ts'
 export type { ExcludeDto } from './types/ExcludeDto.ts'
@@ -220,6 +247,7 @@ export type {
 export type { SignInDto } from './types/SignInDto.ts'
 export type { SignUpDto } from './types/SignUpDto.ts'
 export type { Task } from './types/Task.ts'
+export type { TaskSwapDto } from './types/TaskSwapDto.ts'
 export type { TokensDto } from './types/TokensDto.ts'
 export type { UpdateBoardColumnDto } from './types/UpdateBoardColumnDto.ts'
 export type { UpdateTaskDto } from './types/UpdateTaskDto.ts'
@@ -376,6 +404,9 @@ export { boardControllerDeleteColumn } from './clients/axios/BoardService/boardC
 export { boardControllerDeleteTask } from './clients/axios/BoardService/boardControllerDeleteTask.ts'
 export { boardControllerGetBoard } from './clients/axios/BoardService/boardControllerGetBoard.ts'
 export { boardControllerGetTask } from './clients/axios/BoardService/boardControllerGetTask.ts'
+export { boardControllerGetTasks } from './clients/axios/BoardService/boardControllerGetTasks.ts'
+export { boardControllerSwapColumns } from './clients/axios/BoardService/boardControllerSwapColumns.ts'
+export { boardControllerSwapTasks } from './clients/axios/BoardService/boardControllerSwapTasks.ts'
 export { boardControllerUpdateColumn } from './clients/axios/BoardService/boardControllerUpdateColumn.ts'
 export { boardControllerUpdateTask } from './clients/axios/BoardService/boardControllerUpdateTask.ts'
 export { boardService } from './clients/axios/BoardService/boardService.ts'
@@ -512,10 +543,33 @@ export {
   useBoardControllerGetTaskInfinite,
 } from './hooks/BoardHooks/useBoardControllerGetTaskInfinite.ts'
 export {
+  boardControllerGetTasksQueryKey,
+  boardControllerGetTasksQueryOptions,
+  useBoardControllerGetTasks,
+} from './hooks/BoardHooks/useBoardControllerGetTasks.ts'
+export {
+  boardControllerGetTasksInfiniteQueryKey,
+  boardControllerGetTasksInfiniteQueryOptions,
+  useBoardControllerGetTasksInfinite,
+} from './hooks/BoardHooks/useBoardControllerGetTasksInfinite.ts'
+export {
+  boardControllerGetTasksSuspenseQueryKey,
+  boardControllerGetTasksSuspenseQueryOptions,
+  useBoardControllerGetTasksSuspense,
+} from './hooks/BoardHooks/useBoardControllerGetTasksSuspense.ts'
+export {
   boardControllerGetTaskSuspenseQueryKey,
   boardControllerGetTaskSuspenseQueryOptions,
   useBoardControllerGetTaskSuspense,
 } from './hooks/BoardHooks/useBoardControllerGetTaskSuspense.ts'
+export {
+  boardControllerSwapColumnsMutationKey,
+  useBoardControllerSwapColumns,
+} from './hooks/BoardHooks/useBoardControllerSwapColumns.ts'
+export {
+  boardControllerSwapTasksMutationKey,
+  useBoardControllerSwapTasks,
+} from './hooks/BoardHooks/useBoardControllerSwapTasks.ts'
 export {
   boardControllerUpdateColumnMutationKey,
   useBoardControllerUpdateColumn,

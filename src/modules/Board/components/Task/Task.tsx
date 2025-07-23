@@ -1,53 +1,109 @@
 'use client'
 
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
 import { useQueryClient } from '@tanstack/react-query'
 import { Trash } from 'lucide-react'
-import { useParams, useRouter } from 'next/navigation'
-import React from 'react'
+import Link from 'next/link'
+import React, { CSSProperties } from 'react'
+
+import { useBoardCtx } from '../../hooks/useBoardCtx'
+
+import { ITaskProps } from './types'
 
 import {
+  Board,
   boardControllerGetBoardQueryKey,
-  Task as TaskEntity,
   useBoardControllerDeleteTask,
 } from '@/api/generated'
 import { Button } from '@/components/ui/button'
+import { cn } from '@/utils/helpers'
 
-export const Task: React.FC<TaskEntity> = ({ id, title }) => {
-  const { push } = useRouter()
-  const { boardId } = useParams<{ boardId: string }>()
+export const Task: React.FC<ITaskProps> = ({
+  task,
+  isOverlay = false,
+}) => {
+  const { id, title } = task
+
+  const { id: boardId, activeTask } = useBoardCtx()
+
+  const { setNodeRef, isDragging, listeners, transform, transition } =
+    useSortable({
+      id,
+      disabled: isOverlay,
+      data: { type: 'task', task },
+    })
+  const style: CSSProperties = {
+    transform: CSS.Translate.toString(transform),
+    transition,
+  }
 
   const queryClient = useQueryClient()
-  const { mutateAsync: deleteTask, isPending } =
-    useBoardControllerDeleteTask({
-      mutation: {
-        onSuccess: () => {
-          queryClient.invalidateQueries({
-            queryKey: boardControllerGetBoardQueryKey(boardId),
-          })
-        },
+  const { mutateAsync: deleteTask } = useBoardControllerDeleteTask({
+    mutation: {
+      async onMutate({ id, taskId }) {
+        await queryClient.cancelQueries({
+          queryKey: boardControllerGetBoardQueryKey(id),
+        })
+        const prevState = queryClient.getQueryData(
+          boardControllerGetBoardQueryKey(id)
+        )
+        queryClient.setQueryData<Board>(
+          boardControllerGetBoardQueryKey(id),
+          (old) => {
+            if (!old) {
+              return old
+            }
+
+            return {
+              ...old,
+              boardColumns: old.boardColumns?.map((column) => ({
+                ...column,
+                tasks: column.tasks?.some(({ id }) => id === taskId)
+                  ? column.tasks.filter(({ id }) => id !== taskId)
+                  : column.tasks,
+              })),
+            }
+          }
+        )
+        return { prevState }
       },
-    })
-
-  const onDelete = async (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    e.stopPropagation()
-    await deleteTask({ id: boardId, taskId: id })
-  }
-
-  const onNavigate = () => {
-    push(`/board/${boardId}/task/${id}`)
-  }
+      onError(error, { id }, context) {
+        queryClient.setQueryData(
+          boardControllerGetBoardQueryKey(id),
+          context?.prevState
+        )
+      },
+      onSettled(data, error, { id }) {
+        queryClient.invalidateQueries({
+          queryKey: boardControllerGetBoardQueryKey(id),
+        })
+      },
+    },
+  })
 
   return (
-    <div
-      className="flex cursor-pointer items-start justify-between gap-2 rounded-xl bg-slate-700 px-4 py-2"
-      onClick={onNavigate}
+    <Link
+      href={`/board/${boardId}/task/${id}`}
+      ref={setNodeRef}
+      style={style}
+      className={cn(
+        'flex items-center justify-between gap-2 rounded-xl border border-black bg-white px-4 py-2',
+        {
+          'opacity-40': isDragging,
+          'rotate-6': isOverlay && activeTask,
+        }
+      )}
+      {...listeners}
     >
-      {title}
-      <Button disabled={isPending} variant="ghost" onClick={onDelete}>
+      <span>{title}</span>
+      <Button
+        disabled={isOverlay}
+        variant="ghost"
+        onClick={() => deleteTask({ id: boardId, taskId: id })}
+      >
         <Trash />
       </Button>
-    </div>
+    </Link>
   )
 }

@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+    "srcId": { "type": "string" },
+    "destId": { "type": "string" }
+  },
+  "required": ["srcId", "destId"],
+  "x-readme-ref-name": "ColumnSwapDto"
+}

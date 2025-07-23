@@ -24,14 +24,14 @@ import { boardControllerUpdateTask } from '../../clients/axios/BoardService/boar
 import fetch from '@/api/client'
 
 export const boardControllerUpdateTaskMutationKey = () =>
-  [{ url: '/api/v1/board/{id}/task/{taskId}' }] as const
+  [{ url: '/api/v1/board/{id}/tasks/{taskId}' }] as const
 
 export type BoardControllerUpdateTaskMutationKey = ReturnType<
   typeof boardControllerUpdateTaskMutationKey
 >
 
 /**
- * {@link /api/v1/board/:id/task/:taskId}
+ * {@link /api/v1/board/:id/tasks/:taskId}
  */
 export function useBoardControllerUpdateTask<TContext>(
   options: {

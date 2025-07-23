@@ -136,20 +136,32 @@ export const operations = {
     method: 'delete',
   },
   BoardController_createTask: {
-    path: '/api/v1/board/:id/task',
+    path: '/api/v1/board/:id/tasks',
     method: 'post',
   },
+  BoardController_getTasks: {
+    path: '/api/v1/board/:id/tasks',
+    method: 'get',
+  },
   BoardController_getTask: {
-    path: '/api/v1/board/:id/task/:taskId',
+    path: '/api/v1/board/:id/tasks/:taskId',
     method: 'get',
   },
   BoardController_updateTask: {
-    path: '/api/v1/board/:id/task/:taskId',
+    path: '/api/v1/board/:id/tasks/:taskId',
     method: 'patch',
   },
   BoardController_deleteTask: {
-    path: '/api/v1/board/:id/task/:taskId',
+    path: '/api/v1/board/:id/tasks/:taskId',
     method: 'delete',
+  },
+  BoardController_swapColumns: {
+    path: '/api/v1/board/:id/swap/columns',
+    method: 'patch',
+  },
+  BoardController_swapTasks: {
+    path: '/api/v1/board/:id/swap/tasks',
+    method: 'patch',
   },
   SessionController_invalidate: {
     path: '/api/v1/session/invalidate',

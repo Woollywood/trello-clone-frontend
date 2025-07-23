@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "srcId": { "type": "string" },
+    "destId": { "type": "string" },
+    "destColumnId": { "type": "string" }
+  },
+  "required": ["srcId", "destColumnId"],
+  "x-readme-ref-name": "TaskSwapDto"
+}

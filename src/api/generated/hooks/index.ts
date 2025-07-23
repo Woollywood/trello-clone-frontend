@@ -21,7 +21,12 @@ export type { BoardControllerGetBoardInfiniteQueryKey } from './BoardHooks/useBo
 export type { BoardControllerGetBoardSuspenseQueryKey } from './BoardHooks/useBoardControllerGetBoardSuspense.ts'
 export type { BoardControllerGetTaskQueryKey } from './BoardHooks/useBoardControllerGetTask.ts'
 export type { BoardControllerGetTaskInfiniteQueryKey } from './BoardHooks/useBoardControllerGetTaskInfinite.ts'
+export type { BoardControllerGetTasksQueryKey } from './BoardHooks/useBoardControllerGetTasks.ts'
+export type { BoardControllerGetTasksInfiniteQueryKey } from './BoardHooks/useBoardControllerGetTasksInfinite.ts'
+export type { BoardControllerGetTasksSuspenseQueryKey } from './BoardHooks/useBoardControllerGetTasksSuspense.ts'
 export type { BoardControllerGetTaskSuspenseQueryKey } from './BoardHooks/useBoardControllerGetTaskSuspense.ts'
+export type { BoardControllerSwapColumnsMutationKey } from './BoardHooks/useBoardControllerSwapColumns.ts'
+export type { BoardControllerSwapTasksMutationKey } from './BoardHooks/useBoardControllerSwapTasks.ts'
 export type { BoardControllerUpdateColumnMutationKey } from './BoardHooks/useBoardControllerUpdateColumn.ts'
 export type { BoardControllerUpdateTaskMutationKey } from './BoardHooks/useBoardControllerUpdateTask.ts'
 export type { NotificationControllerCountNotificationsQueryKey } from './NotificationHooks/useNotificationControllerCountNotifications.ts'
@@ -172,10 +177,33 @@ export {
   useBoardControllerGetTaskInfinite,
 } from './BoardHooks/useBoardControllerGetTaskInfinite.ts'
 export {
+  boardControllerGetTasksQueryKey,
+  boardControllerGetTasksQueryOptions,
+  useBoardControllerGetTasks,
+} from './BoardHooks/useBoardControllerGetTasks.ts'
+export {
+  boardControllerGetTasksInfiniteQueryKey,
+  boardControllerGetTasksInfiniteQueryOptions,
+  useBoardControllerGetTasksInfinite,
+} from './BoardHooks/useBoardControllerGetTasksInfinite.ts'
+export {
+  boardControllerGetTasksSuspenseQueryKey,
+  boardControllerGetTasksSuspenseQueryOptions,
+  useBoardControllerGetTasksSuspense,
+} from './BoardHooks/useBoardControllerGetTasksSuspense.ts'
+export {
   boardControllerGetTaskSuspenseQueryKey,
   boardControllerGetTaskSuspenseQueryOptions,
   useBoardControllerGetTaskSuspense,
 } from './BoardHooks/useBoardControllerGetTaskSuspense.ts'
+export {
+  boardControllerSwapColumnsMutationKey,
+  useBoardControllerSwapColumns,
+} from './BoardHooks/useBoardControllerSwapColumns.ts'
+export {
+  boardControllerSwapTasksMutationKey,
+  useBoardControllerSwapTasks,
+} from './BoardHooks/useBoardControllerSwapTasks.ts'
 export {
   boardControllerUpdateColumnMutationKey,
   useBoardControllerUpdateColumn,
