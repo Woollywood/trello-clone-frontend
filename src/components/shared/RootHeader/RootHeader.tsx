@@ -3,8 +3,9 @@ import {
   HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query'
-import Link from 'next/link'
 import React, { Suspense } from 'react'
+
+import TypedLink from '../TypedLink'
 
 import { Notifications } from './components/Notifications'
 import { Profile } from './components/Profile'
@@ -33,7 +34,7 @@ const RootHeaderSuspense: React.FC = async () => {
 export const RootHeader: React.FC = () => {
   return (
     <header className="h-header-height flex items-center justify-between px-6 py-4">
-      <Link href="/">Лого</Link>
+      <TypedLink href={{ route: '/' }}>Лого</TypedLink>
       <Suspense>
         <RootHeaderSuspense />
       </Suspense>

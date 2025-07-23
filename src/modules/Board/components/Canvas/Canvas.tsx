@@ -7,7 +7,7 @@ import {
   useSensors,
 } from '@dnd-kit/core'
 import { SortableContext } from '@dnd-kit/sortable'
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { useBoardCtx } from '../../hooks/useBoardCtx'
 import { useDragHandlers } from '../../hooks/useDragHandlers'
@@ -21,6 +21,11 @@ export const Canvas: React.FC = () => {
   const { columns } = useBoardCtx()
 
   const { onDragStart, onDragOver, onDragEnd } = useDragHandlers()
+
+  const columnsIds = useMemo(
+    () => columns?.map(({ id }) => id) ?? [],
+    [columns]
+  )
 
   const hasColumns = columns && columns.length > 0
 
@@ -36,7 +41,7 @@ export const Canvas: React.FC = () => {
       onDragOver={onDragOver}
       onDragEnd={onDragEnd}
     >
-      <SortableContext items={columns?.map(({ id }) => id) ?? []}>
+      <SortableContext items={columnsIds}>
         <div className="h-full w-full px-6 pb-24">
           <div className="flex h-full items-start gap-6">
             {!hasColumns ? (

@@ -4,18 +4,20 @@ import {
   QueryClient,
 } from '@tanstack/react-query'
 import { NextPage } from 'next'
+import { InferPagePropsType } from 'next-typesafe-url'
+import { withParamValidation } from 'next-typesafe-url/app/hoc'
 import React, { Suspense } from 'react'
+
+import { Route, RouteType } from './routeType'
 
 import { boardControllerGetBoardQueryOptions } from '@/api/generated'
 import { createServerInstance } from '@/api/instances'
 import { Board } from '@/modules/Board'
 
-interface Props {
-  params: Promise<{ boardId: string }>
-}
+type Props = InferPagePropsType<RouteType>
 
-const BoardSuspense: NextPage<Props> = async ({ params }) => {
-  const { boardId } = await params
+const BoardSuspense: NextPage<Props> = async ({ routeParams }) => {
+  const { boardId } = await routeParams
 
   const queryClient = new QueryClient()
   const client = await createServerInstance()
@@ -39,4 +41,4 @@ const Page: NextPage<Props> = ({ ...props }) => {
   )
 }
 
-export default Page
+export default withParamValidation(Page, Route)

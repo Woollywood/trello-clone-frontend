@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import React from 'react'
 
 import { BoardCreateForm } from '../BoardCreateForm'
+import TypedLink from '../TypedLink'
 
 import { Board, CreateBoardDto } from '@/api/generated'
 import {
@@ -25,13 +25,16 @@ export const BoardList: React.FC<Props> = ({
     <div>
       <div className="grid grid-cols-4 gap-4">
         {boards.map(({ id, title }) => (
-          <Link
+          <TypedLink
             key={id}
             className="rounded-xl bg-amber-100 p-4"
-            href={`/board/${id}`}
+            href={{
+              route: '/board/[boardId]',
+              routeParams: { boardId: id },
+            }}
           >
             {title}
-          </Link>
+          </TypedLink>
         ))}
         {withCreate && (
           <Popover>

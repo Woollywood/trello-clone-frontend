@@ -4,15 +4,17 @@ import {
   QueryClient,
 } from '@tanstack/react-query'
 import { NextPage } from 'next'
+import { InferPagePropsType } from 'next-typesafe-url'
+import { withParamValidation } from 'next-typesafe-url/app/hoc'
 import { Suspense } from 'react'
+
+import { Route, RouteType } from './routeType'
 
 import { workspaceControllerFindWorkspaceQueryOptions } from '@/api/generated'
 import { createServerInstance } from '@/api/instances'
 import { WorkspaceSettings } from '@/modules/WorkspaceSettings'
 
-interface Props {
-  params: Promise<{ id: string }>
-}
+type Props = InferPagePropsType<RouteType>
 
 const WorkspaceSuspense: NextPage<{ id: string }> = async ({
   id,
@@ -30,8 +32,8 @@ const WorkspaceSuspense: NextPage<{ id: string }> = async ({
   )
 }
 
-const Page: NextPage<Props> = async ({ params }) => {
-  const { id } = await params
+const Page: NextPage<Props> = async ({ routeParams }) => {
+  const { id } = await routeParams
 
   return (
     <Suspense fallback={<p>Загрузка</p>}>
@@ -40,4 +42,4 @@ const Page: NextPage<Props> = async ({ params }) => {
   )
 }
 
-export default Page
+export default withParamValidation(Page, Route)

@@ -1,6 +1,8 @@
-export const ROUTES = {
-  signIn: '/auth/sign-in',
-  signUp: '/aith/sign-up',
-}
+import { DynamicRoute } from 'next-typesafe-url'
+import { z } from 'zod'
 
-export type TROUTES = typeof ROUTES
+export const SearchRoute = {
+  searchParams: z.object({ search: z.string().optional() }),
+} satisfies DynamicRoute
+
+export type SearchRouteType = typeof SearchRoute

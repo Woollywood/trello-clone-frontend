@@ -1,9 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import React from 'react'
 
 import { Workspace } from '@/api/generated'
+import TypedLink from '@/components/shared/TypedLink'
 import {
   Accordion,
   AccordionContent,
@@ -18,15 +18,30 @@ export const WorkspaceItem: React.FC<Workspace> = ({ id, title }) => {
         <AccordionTrigger>{title}</AccordionTrigger>
         <AccordionContent>
           <div className="flex flex-col gap-1">
-            <Link href={`/dashboard/workspace/${id}/boards`}>
+            <TypedLink
+              href={{
+                route: '/dashboard/workspace/[id]/boards',
+                routeParams: { id },
+              }}
+            >
               Доски
-            </Link>
-            <Link href={`/dashboard/workspace/${id}/members`}>
+            </TypedLink>
+            <TypedLink
+              href={{
+                route: '/dashboard/workspace/[id]/members',
+                routeParams: { id },
+              }}
+            >
               Участники
-            </Link>
-            <Link href={`/dashboard/workspace/${id}/settings`}>
+            </TypedLink>
+            <TypedLink
+              href={{
+                route: '/dashboard/workspace/[id]/settings',
+                routeParams: { id },
+              }}
+            >
               Настройки
-            </Link>
+            </TypedLink>
           </div>
         </AccordionContent>
       </AccordionItem>

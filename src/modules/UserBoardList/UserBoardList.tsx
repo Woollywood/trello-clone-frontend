@@ -4,6 +4,7 @@ import {
   QueryClient,
 } from '@tanstack/react-query'
 import { NextPage } from 'next'
+import { InferPagePropsType } from 'next-typesafe-url'
 import { Suspense } from 'react'
 
 import { UserWorkspaceBoards } from './components'
@@ -14,9 +15,9 @@ import {
   userControllerListWorkspaceBoardsInfiniteQueryOptions,
 } from '@/api/generated'
 import { createServerInstance } from '@/api/instances'
-import { PaginationAsyncProps } from '@/types'
+import { SearchRouteType } from '@/utils/constants'
 
-type Props = PaginationAsyncProps
+type Props = InferPagePropsType<SearchRouteType>
 
 const UserBoardsSuspense: NextPage<Props> = async ({
   searchParams,

@@ -4,7 +4,6 @@ import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { useQueryClient } from '@tanstack/react-query'
 import { Trash } from 'lucide-react'
-import Link from 'next/link'
 import React, { CSSProperties } from 'react'
 
 import { useBoardCtx } from '../../hooks/useBoardCtx'
@@ -16,6 +15,7 @@ import {
   boardControllerGetBoardQueryKey,
   useBoardControllerDeleteTask,
 } from '@/api/generated'
+import TypedLink from '@/components/shared/TypedLink'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/utils/helpers'
 
@@ -37,6 +37,8 @@ export const Task: React.FC<ITaskProps> = ({
     transform: CSS.Translate.toString(transform),
     transition,
   }
+
+  console.log('task render')
 
   const queryClient = useQueryClient()
   const { mutateAsync: deleteTask } = useBoardControllerDeleteTask({
@@ -83,8 +85,11 @@ export const Task: React.FC<ITaskProps> = ({
   })
 
   return (
-    <Link
-      href={`/board/${boardId}/task/${id}`}
+    <TypedLink
+      href={{
+        route: '/board/[boardId]/task/[taskId]',
+        routeParams: { boardId, taskId: id },
+      }}
       ref={setNodeRef}
       style={style}
       className={cn(
@@ -104,6 +109,6 @@ export const Task: React.FC<ITaskProps> = ({
       >
         <Trash />
       </Button>
-    </Link>
+    </TypedLink>
   )
 }

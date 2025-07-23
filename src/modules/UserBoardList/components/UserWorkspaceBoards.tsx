@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import React from 'react'
 
 import {
@@ -8,6 +7,7 @@ import {
   useUserControllerListWorkspaceBoardsInfinite,
 } from '@/api/generated'
 import { BoardList } from '@/components/shared/BoardList/BoardList'
+import TypedLink from '@/components/shared/TypedLink'
 import { usePagination } from '@/hooks/usePagination'
 import { flatDataFromInfiniteQuery } from '@/utils/helpers/tanstack'
 
@@ -29,15 +29,30 @@ export const UserWorkspaceBoards: React.FC = () => {
           <div className="mb-4 flex items-center justify-between gap-4">
             <h2>{title}</h2>
             <div className="flex items-center gap-2">
-              <Link href={`/dashboard/workspace/${id}/boards`}>
+              <TypedLink
+                href={{
+                  route: '/dashboard/workspace/[id]/boards',
+                  routeParams: { id },
+                }}
+              >
                 Доски
-              </Link>
-              <Link href={`/dashboard/workspace/${id}/members`}>
+              </TypedLink>
+              <TypedLink
+                href={{
+                  route: '/dashboard/workspace/[id]/members',
+                  routeParams: { id },
+                }}
+              >
                 Участники
-              </Link>
-              <Link href={`/dashboard/workspace/${id}/settings`}>
+              </TypedLink>
+              <TypedLink
+                href={{
+                  route: '/dashboard/workspace/[id]/settings',
+                  routeParams: { id },
+                }}
+              >
                 Настройки
-              </Link>
+              </TypedLink>
             </div>
           </div>
           <BoardList

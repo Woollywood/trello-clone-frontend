@@ -4,7 +4,11 @@ import {
   QueryClient,
 } from '@tanstack/react-query'
 import { NextPage } from 'next'
+import { InferPagePropsType } from 'next-typesafe-url'
+import { withParamValidation } from 'next-typesafe-url/app/hoc'
 import { Suspense } from 'react'
+
+import { Route, RouteType } from './routeType'
 
 import {
   workspaceControllerListMembersInfiniteQueryOptions,
@@ -12,18 +16,11 @@ import {
 } from '@/api/generated'
 import { createServerInstance } from '@/api/instances'
 import { WorkspaceMembers } from '@/modules/WorkspaceMembers'
-import { WorkspaceMembersType } from '@/modules/WorkspaceMembers/types'
-import { PaginationParams } from '@/types'
 
-type SearchParams = PaginationParams & { type?: WorkspaceMembersType }
-
-interface Props {
-  params: Promise<{ id: string }>
-  searchParams: Promise<SearchParams>
-}
+type Props = InferPagePropsType<RouteType>
 
 const WorkspaceMembersSuspense: NextPage<
-  { id: string } & SearchParams
+  Awaited<Props['routeParams']> & Awaited<Props['searchParams']>
 > = async ({ id, type = 'members', search }) => {
   const queryClient = new QueryClient()
   const client = await createServerInstance()
@@ -56,9 +53,12 @@ const WorkspaceMembersSuspense: NextPage<
   )
 }
 
-const Page: NextPage<Props> = async ({ params, searchParams }) => {
+const Page: NextPage<Props> = async ({
+  routeParams,
+  searchParams,
+}) => {
   const { type, ...paginationParams } = await searchParams
-  const { id } = await params
+  const { id } = await routeParams
 
   return (
     <Suspense fallback={<p>Загрузка...</p>}>
@@ -71,4 +71,4 @@ const Page: NextPage<Props> = async ({ params, searchParams }) => {
   )
 }
 
-export default Page
+export default withParamValidation(Page, Route)

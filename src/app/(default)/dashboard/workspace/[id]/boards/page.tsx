@@ -4,23 +4,23 @@ import {
   QueryClient,
 } from '@tanstack/react-query'
 import { NextPage } from 'next'
+import { InferPagePropsType } from 'next-typesafe-url'
+import { withParamValidation } from 'next-typesafe-url/app/hoc'
 import { Suspense } from 'react'
+
+import { Route, RouteType } from './routeType'
 
 import { workspaceControllerListBoardsInfiniteQueryOptions } from '@/api/generated'
 import { createServerInstance } from '@/api/instances'
 import { WorkspaceBoardList } from '@/modules/WorkspaceBoardList'
-import { PaginationParams } from '@/types'
 
-interface Props {
-  params: Promise<{ id: string }>
-  searchParams: Promise<PaginationParams>
-}
+type Props = InferPagePropsType<RouteType>
 
 const BoardsSuspense: NextPage<Props> = async ({
-  params,
+  routeParams,
   searchParams,
 }) => {
-  const { id } = await params
+  const { id } = await routeParams
   const { search } = await searchParams
 
   const queryClient = new QueryClient()
@@ -49,4 +49,4 @@ const Page: NextPage<Props> = async (props) => {
   )
 }
 
-export default Page
+export default withParamValidation(Page, Route)

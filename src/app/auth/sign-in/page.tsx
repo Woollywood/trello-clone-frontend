@@ -1,15 +1,15 @@
 import { NextPage } from 'next'
-import Link from 'next/link'
-import queryString from 'query-string'
+import { InferPagePropsType } from 'next-typesafe-url'
+import { withParamValidation } from 'next-typesafe-url/app/hoc'
 
+import { Route, RouteType } from './routeType'
+
+import TypedLink from '@/components/shared/TypedLink'
 import { AuthCard } from '@/components/ui/auth-card'
 import { Button } from '@/components/ui/button'
 import { SignInForm } from '@/modules/SignInForm'
-import { ENV_CONFIG } from '@/utils/constants'
 
-interface Props {
-  searchParams: Promise<{ redirectURL?: string }>
-}
+type Props = InferPagePropsType<RouteType>
 
 const Page: NextPage<Props> = async ({ searchParams }) => {
   const { redirectURL } = await searchParams
@@ -22,14 +22,14 @@ const Page: NextPage<Props> = async ({ searchParams }) => {
         <p>
           Need an account?{' '}
           <Button asChild variant="link">
-            <Link
-              href={queryString.stringifyUrl({
-                url: ENV_CONFIG.SIGN_UP_URL,
-                query: { redirectURL },
-              })}
+            <TypedLink
+              href={{
+                route: '/auth/sign-up',
+                ...(redirectURL && { searchParams: { redirectURL } }),
+              }}
             >
               Create one
-            </Link>
+            </TypedLink>
           </Button>
         </p>
       }
@@ -39,4 +39,4 @@ const Page: NextPage<Props> = async ({ searchParams }) => {
   )
 }
 
-export default Page
+export default withParamValidation(Page, Route)
