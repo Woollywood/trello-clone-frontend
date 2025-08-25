@@ -31,6 +31,8 @@ const links: ISidebarLink<AllRoutes>[] = [
   },
 ]
 
+console.log('hi')
+
 const WorkspaceListSuspense: NextPage<
   React.PropsWithChildren
 > = async ({ children }) => {
