@@ -31,8 +31,7 @@ const links: ISidebarLink<AllRoutes>[] = [
   },
 ]
 
-console.log('hi');
-
+console.log('hi')
 
 const WorkspaceListSuspense: NextPage<
   React.PropsWithChildren
