@@ -1,8 +1,21 @@
-import Link, { LinkProps } from 'next/link'
-import { $path, AllRoutes, PathOptions } from 'next-typesafe-url'
+'use client'
 
-type Props<T extends AllRoutes> = Omit<
+import Link, { LinkProps } from 'next/link'
+import { usePathname } from 'next/navigation'
+import { $path, AllRoutes, PathOptions } from 'next-typesafe-url'
+import React from 'react'
+
+import { Children } from '@/types'
+
+export type TypedLinkProps = Omit<
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  'children'
+> & {
+  children: Children
+}
+
+export type Props<T extends AllRoutes> = Omit<
+  TypedLinkProps,
   keyof LinkProps
 > &
   React.RefAttributes<HTMLAnchorElement> &
@@ -12,7 +25,18 @@ const TypedLink = <T extends AllRoutes>({
   href,
   ...props
 }: Props<T>) => {
-  return <Link href={$path(href)} {...props}></Link>
+  const path = usePathname()
+  const isActive = path === href.route
+  const children =
+    typeof props.children === 'function'
+      ? props.children({ isActive })
+      : props.children
+
+  return (
+    <Link href={$path(href)} {...props}>
+      {children}
+    </Link>
+  )
 }
 
 export default TypedLink
