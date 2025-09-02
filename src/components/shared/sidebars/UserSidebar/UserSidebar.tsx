@@ -3,35 +3,36 @@ import {
   HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query'
+import { Home, LayoutTemplate, Table2 } from 'lucide-react'
 import { NextPage } from 'next'
-import { AllRoutes, PathOptions } from 'next-typesafe-url'
+import { AllRoutes } from 'next-typesafe-url'
 import React, { Suspense } from 'react'
 
-import TypedLink from '../../TypedLink'
-
+import { SidebarLink } from './components/SidebarLink'
 import { WorkspaceList } from './components/WorkspaceList'
+import { ISidebarLink } from './types'
 
 import { userControllerFindWorkSpacesQueryOptions } from '@/api/generated'
 import { createServerInstance } from '@/api/instances'
 import { Separator } from '@/components/ui/separator'
 
-interface ISidebarLink<T extends AllRoutes> {
-  label: string
-  href: PathOptions<T>
-}
-
 const links: ISidebarLink<AllRoutes>[] = [
   {
     label: 'Доски',
     href: { route: '/dashboard/boards' },
+    icon: <Table2 className="w-4 h-4 mx-2" />,
+  },
+  {
+    label: 'Шаблоны',
+    href: { route: '/dashboard/templates' },
+    icon: <LayoutTemplate className="w-4 h-4 mx-2" />,
   },
   {
     label: 'Главная',
     href: { route: '/dashboard/main' },
+    icon: <Home className="w-4 h-4 mx-2" />,
   },
 ]
-
-console.log('hi')
 
 const WorkspaceListSuspense: NextPage<
   React.PropsWithChildren
@@ -56,9 +57,9 @@ export const UserSidebar: NextPage = () => {
   return (
     <div>
       <ul>
-        {links.map(({ label, href }) => (
-          <li key={href.route}>
-            <TypedLink href={href}>{label}</TypedLink>
+        {links.map((link) => (
+          <li key={link.href.route}>
+            <SidebarLink {...link} />
           </li>
         ))}
       </ul>

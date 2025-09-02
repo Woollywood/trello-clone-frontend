@@ -22,6 +22,7 @@ declare module "@@@next-typesafe-url" {
     "/dashboard/boards": StaticRoute;
     "/dashboard/main": StaticRoute;
     "/dashboard": StaticRoute;
+    "/dashboard/templates": StaticRoute;
     "/": StaticRoute;
   }
 }
