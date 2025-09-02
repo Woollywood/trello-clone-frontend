@@ -20,17 +20,17 @@ const links: ISidebarLink<AllRoutes>[] = [
   {
     label: 'Доски',
     href: { route: '/dashboard/boards' },
-    icon: <Table2 className="w-4 h-4 mx-2" />,
+    icon: <Table2 className="mx-2 h-4 w-4" />,
   },
   {
     label: 'Шаблоны',
     href: { route: '/dashboard/templates' },
-    icon: <LayoutTemplate className="w-4 h-4 mx-2" />,
+    icon: <LayoutTemplate className="mx-2 h-4 w-4" />,
   },
   {
     label: 'Главная',
     href: { route: '/dashboard/main' },
-    icon: <Home className="w-4 h-4 mx-2" />,
+    icon: <Home className="mx-2 h-4 w-4" />,
   },
 ]
 

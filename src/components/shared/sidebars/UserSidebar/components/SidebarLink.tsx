@@ -10,14 +10,14 @@ import { cn } from '@/utils/helpers'
 export const SidebarLink: React.FC<ISidebarLink<AllRoutes>> = ({
   href,
   icon,
-  label,  
+  label,
 }) => {
   return (
-    <TypedLink href={href} className="block ">
+    <TypedLink href={href} className="block">
       {({ isActive }) => (
         <div
           className={cn(
-            'flex items-center my-1 px-2 py-1.5 rounded-md  hover:bg-gray-300',
+            'my-1 flex items-center rounded-md px-2 py-1.5 hover:bg-gray-300',
             { 'bg-[#43699d] text-white': isActive },
             { 'hover:bg-[#43699d]': isActive }
           )}
@@ -25,7 +25,6 @@ export const SidebarLink: React.FC<ISidebarLink<AllRoutes>> = ({
           {icon} {label}
         </div>
       )}
-       
-    </TypedLink >
+    </TypedLink>
   )
 }
